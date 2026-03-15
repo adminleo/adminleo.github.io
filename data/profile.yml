@@ -123,13 +123,15 @@ experience:
     location: Berlin, Germany
     type: Self-employed
     description: |
-      My first company — a small consultancy focused on product design and
-      Exponential Organizations methodology. Worked with early-stage startups
-      on product identity, UX, and organizational transformation.
+      Transformed the family business into a consultancy focused on product
+      design and Exponential Organizations methodology. Modernized the tech
+      stack and applied ExO principles to understand how exponential
+      organizations operate — then helped early-stage startups do the same.
     highlights:
-      - Product design for early-stage startups
+      - Modernized legacy tech stack to modern tooling
       - Certified ExO Consultant (OpenExO)
-      - Business model innovation workshops
+      - Applied ExO principles to business transformation
+      - Product design and UX for early-stage startups
 
   - title: Student Consultant
     company: Capufaktur e.V.
@@ -160,30 +162,35 @@ experience:
       - Partnership development
 
 education:
-  - degree: Bachelor of Science - Wirtschaftsinformatik (Business Informatics)
+  - degree: "Business Informatics (Wirtschaftsinformatik)"
     institution: WINGS Professional Studies - Wismar University
     period: Oct 2021 - Sep 2022
+    status: started
     highlights:
       - Agile Methods
       - Product Development
 
-  - degree: Bachelor of Science - Economics
+  - degree: "Economics"
     institution: "Universit\xE4t Greifswald"
     period: 2018 - 2021
+    status: started
     highlights:
-      - SWOT Analysis specialization
+      - SWOT Analysis
+      - Transferred from BSP Business School Berlin
 
   - degree: UX/UI Design Bootcamp
     institution: Ironhack
     period: 2020
+    status: completed
     highlights:
       - User Research & Testing
       - Wireframing & Prototyping
       - Design Thinking
 
-  - degree: Bachelor of Arts - International Economics (started)
+  - degree: "International Economics"
     institution: BSP Business School Berlin
     period: 2016 - 2018
+    status: started
     highlights:
       - International Business
       - Transferred to Universität Greifswald
