@@ -124,6 +124,97 @@
     }
     .nav-links a:hover { color: #fff; }
 
+    /* ─── Language Switcher ─── */
+    .lang-switcher {
+      display: flex;
+      gap: 0.35rem;
+      align-items: center;
+      margin-left: 0.75rem;
+      padding-left: 0.75rem;
+      border-left: 1px solid var(--border);
+    }
+    .lang-btn {
+      background: none;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      padding: 0.25rem 0.45rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--text-dim);
+      font-weight: 600;
+      font-family: var(--mono);
+      line-height: 1;
+    }
+    .lang-btn:hover { border-color: var(--border); color: var(--text-secondary); }
+    .lang-btn.active {
+      border-color: var(--accent-2);
+      color: var(--accent-2);
+      background: rgba(34,211,238,0.08);
+    }
+
+    /* ─── Burger Menu ─── */
+    .burger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 60;
+    }
+    .burger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .burger.open span:nth-child(2) { opacity: 0; }
+    .burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* Mobile overlay menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 55;
+      background: rgba(10,10,15,0.97);
+      backdrop-filter: blur(30px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.75rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-menu.open {
+      display: flex;
+      opacity: 1;
+    }
+    .mobile-menu a {
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: #fff; }
+    .mobile-menu .lang-switcher-mobile {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .mobile-menu .lang-btn {
+      font-size: 0.85rem;
+      padding: 0.4rem 0.7rem;
+    }
+
     /* ─── Hero ─── */
     .hero {
       position: relative;
@@ -1046,19 +1137,13 @@
 
     /* ─── Mobile ─── */
     @media (max-width: 768px) {
-      /* Nav — horizontal scroll, no wrapping */
+      /* Nav — burger mode */
       .nav { padding: 0.75rem 1rem; }
       .nav-inner { gap: 0.75rem; }
       .nav-name { font-size: 0.8rem; white-space: nowrap; }
-      .nav-links {
-        gap: 0.9rem;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        flex-wrap: nowrap;
-      }
-      .nav-links::-webkit-scrollbar { display: none; }
-      .nav-links a { font-size: 0.7rem; white-space: nowrap; }
+      .nav-links { display: none; }
+      .lang-switcher { display: none; }
+      .burger { display: block; }
 
       /* Hero — stacked, centered */
       .hero {
@@ -1168,24 +1253,47 @@
     <div class="nav-inner">
       <span class="nav-name"><span class="dot"></span>leonardo_bornhaeusser</span>
       <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#services">Stack</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#posts">Posts</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#services" data-i18n="nav_services">Stack</a>
+        <a href="#experience" data-i18n="nav_experience">Experience</a>
+        <a href="#projects" data-i18n="nav_projects">Projects</a>
+        <a href="#posts" data-i18n="nav_posts">Posts</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+        <div class="lang-switcher">
+          <button class="lang-btn active" onclick="switchLang('en')" title="English">EN</button>
+          <button class="lang-btn" onclick="switchLang('de')" title="Deutsch">DE</button>
+          <button class="lang-btn" onclick="switchLang('fr')" title="Français">FR</button>
+        </div>
       </div>
+      <button class="burger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile Overlay Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMenu()" data-i18n="nav_about">About</a>
+    <a href="#services" onclick="closeMenu()" data-i18n="nav_services">Stack</a>
+    <a href="#experience" onclick="closeMenu()" data-i18n="nav_experience">Experience</a>
+    <a href="#projects" onclick="closeMenu()" data-i18n="nav_projects">Projects</a>
+    <a href="#posts" onclick="closeMenu()" data-i18n="nav_posts">Posts</a>
+    <a href="#contact" onclick="closeMenu()" data-i18n="nav_contact">Contact</a>
+    <div class="lang-switcher-mobile">
+      <button class="lang-btn active" onclick="switchLang('en')" title="English">EN</button>
+      <button class="lang-btn" onclick="switchLang('de')" title="Deutsch">DE</button>
+      <button class="lang-btn" onclick="switchLang('fr')" title="Français">FR</button>
+    </div>
+  </div>
 
   <!-- Hero -->
   <section class="hero">
     <div class="hero-text">
       <div class="hero-label">Builder Looking for a Team</div>
       <h1>Leonardo<br><span class="gradient-text">Bornhaeusser</span></h1>
-      <p class="subtitle">11 years of starting things, breaking things, and figuring it out — now looking to bring that experience to a team where I can contribute and keep learning.</p>
+      <p class="subtitle" data-i18n="hero_subtitle">11 years of starting things, breaking things, and figuring it out — now looking to bring that experience to a team where I can contribute and keep learning.</p>
       <div class="hero-cta">
-        <a href="mailto:leonardo@creativate.tech" class="btn btn-gradient">Let&#39;s talk</a>
+        <a href="mailto:leonardo@creativate.tech" class="btn btn-gradient" data-i18n="cta_talk">Let&#39;s talk</a>
         <a href="https://www.linkedin.com/in/leonardo-bornh%C3%A4u%C3%9Fer/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
       </div>
     </div>
@@ -1197,9 +1305,9 @@
   <!-- About -->
   <div class="section-divider"></div>
   <section class="section" id="about">
-    <div class="section-label">About</div>
-    <h2 class="section-title">Background</h2>
-    <p class="about-text">I&#39;ve spent the last decade building ventures — some worked, some didn&#39;t, all taught me something. My side projects (c-node.ai, Creativate AI Studio) keep me sharp, but what I&#39;m really looking for is a team. A place where I can bring what I&#39;ve learned about product, business development, and getting things off the ground, and combine it with the structure and perspective that comes from working with good people. I don&#39;t have all the answers, but I&#39;m reliable, I care about the work, and I&#39;m not afraid to do the unglamorous stuff that actually moves things forward.
+    <div class="section-label" data-i18n="label_about">About</div>
+    <h2 class="section-title" data-i18n="title_about">Background</h2>
+    <p class="about-text" data-i18n="about_text">I&#39;ve spent the last decade building ventures — some worked, some didn&#39;t, all taught me something. My side projects (c-node.ai, Creativate AI Studio) keep me sharp, but what I&#39;m really looking for is a team. A place where I can bring what I&#39;ve learned about product, business development, and getting things off the ground, and combine it with the structure and perspective that comes from working with good people. I don&#39;t have all the answers, but I&#39;m reliable, I care about the work, and I&#39;m not afraid to do the unglamorous stuff that actually moves things forward.
 </p>
 
     <!-- Skills Pills -->
@@ -1246,9 +1354,9 @@
   <!-- What I Do -->
   <div class="section-divider"></div>
   <section class="section" id="services">
-    <div class="section-label">Services</div>
-    <h2 class="section-title">What I Do</h2>
-    <p class="section-subtitle">How I help companies build great products and scale effectively.</p>
+    <div class="section-label" data-i18n="label_services">Services</div>
+    <h2 class="section-title" data-i18n="title_services">What I Do</h2>
+    <p class="section-subtitle" data-i18n="subtitle_services">How I help companies build great products and scale effectively.</p>
     <div class="services-grid">
       
       <div class="service-card">
@@ -1275,9 +1383,9 @@
   <!-- Experience -->
   <div class="section-divider"></div>
   <section class="section" id="experience">
-    <div class="section-label">Career</div>
-    <h2 class="section-title">Experience</h2>
-    <p class="section-subtitle">Where I've built, led, and learned.</p>
+    <div class="section-label" data-i18n="label_career">Career</div>
+    <h2 class="section-title" data-i18n="title_experience">Experience</h2>
+    <p class="section-subtitle" data-i18n="subtitle_experience">Where I've built, led, and learned.</p>
     <div class="timeline">
       
       <div class="timeline-item">
@@ -1405,9 +1513,9 @@ on product design in a larger team context.</p>
   
   <div class="section-divider"></div>
   <section class="section" id="projects">
-    <div class="section-label">Projects</div>
-    <h2 class="section-title">What I'm Working On</h2>
-    <p class="section-subtitle">Side ventures and ongoing projects.</p>
+    <div class="section-label" data-i18n="label_projects">Projects</div>
+    <h2 class="section-title" data-i18n="title_projects">What I'm Working On</h2>
+    <p class="section-subtitle" data-i18n="subtitle_projects">Side ventures and ongoing projects.</p>
     <div class="projects-grid">
       
       <div class="project-card">
@@ -1429,7 +1537,7 @@ on product design in a larger team context.</p>
         </div>
         
         
-        <a href="https://c-node.ai" target="_blank" rel="noopener" class="project-link">Visit &rarr;</a>
+        <a href="https://c-node.ai" target="_blank" rel="noopener" class="project-link" data-i18n="visit_link">Visit &rarr;</a>
         
       </div>
       
@@ -1450,7 +1558,7 @@ on product design in a larger team context.</p>
         </div>
         
         
-        <a href="https://creativate.ai.studio" target="_blank" rel="noopener" class="project-link">Visit &rarr;</a>
+        <a href="https://creativate.ai.studio" target="_blank" rel="noopener" class="project-link" data-i18n="visit_link">Visit &rarr;</a>
         
       </div>
       
@@ -1469,7 +1577,7 @@ on product design in a larger team context.</p>
         </div>
         
         
-        <a href="https://ai-playbook.eu" target="_blank" rel="noopener" class="project-link">Visit &rarr;</a>
+        <a href="https://ai-playbook.eu" target="_blank" rel="noopener" class="project-link" data-i18n="visit_link">Visit &rarr;</a>
         
       </div>
       
@@ -1481,9 +1589,9 @@ on product design in a larger team context.</p>
   
   <div class="section-divider"></div>
   <section class="section">
-    <div class="section-label">Testimonials</div>
-    <h2 class="section-title">What Others Say</h2>
-    <p class="section-subtitle">Recommendations from colleagues and mentors.</p>
+    <div class="section-label" data-i18n="label_testimonials">Testimonials</div>
+    <h2 class="section-title" data-i18n="title_testimonials">What Others Say</h2>
+    <p class="section-subtitle" data-i18n="subtitle_testimonials">Recommendations from colleagues and mentors.</p>
     <div class="reco-grid">
       
       <div class="reco-card">
@@ -1506,9 +1614,9 @@ on product design in a larger team context.</p>
   
   <div class="section-divider"></div>
   <section class="section" id="posts">
-    <div class="section-label">Featured</div>
-    <h2 class="section-title">LinkedIn Posts</h2>
-    <p class="section-subtitle">Thoughts on product, technology, and building ventures.</p>
+    <div class="section-label" data-i18n="label_featured">Featured</div>
+    <h2 class="section-title" data-i18n="title_posts">LinkedIn Posts</h2>
+    <p class="section-subtitle" data-i18n="subtitle_posts">Thoughts on product, technology, and building ventures.</p>
     <div class="linkedin-grid">
       
       <a href="https://www.linkedin.com/feed/update/urn:li:activity:7419617084063502336/" target="_blank" rel="noopener" class="linkedin-card" style="text-decoration:none;">
@@ -1531,7 +1639,7 @@ on product design in a larger team context.</p>
           <span class="linkedin-stat">&#128172; 596</span>
         </div>
         
-        <span class="linkedin-card-link">Read on LinkedIn &rarr;</span>
+        <span class="linkedin-card-link" data-i18n="read_linkedin">Read on LinkedIn &rarr;</span>
       </a>
       
       <a href="https://www.linkedin.com/posts/leonardo-bornh%C3%A4u%C3%9Fer_germany-spends-billions-on-ideas-that-never-activity-7395019693574619136-vCPk" target="_blank" rel="noopener" class="linkedin-card" style="text-decoration:none;">
@@ -1554,7 +1662,7 @@ on product design in a larger team context.</p>
           <span class="linkedin-stat">&#128172; 8</span>
         </div>
         
-        <span class="linkedin-card-link">Read on LinkedIn &rarr;</span>
+        <span class="linkedin-card-link" data-i18n="read_linkedin">Read on LinkedIn &rarr;</span>
       </a>
       
       <a href="https://www.linkedin.com/posts/janseidemann_das-erste-female-founder-programm-von-activity-7394287918678241280-cYc5" target="_blank" rel="noopener" class="linkedin-card" style="text-decoration:none;">
@@ -1577,7 +1685,7 @@ on product design in a larger team context.</p>
           <span class="linkedin-stat">&#128172; 16</span>
         </div>
         
-        <span class="linkedin-card-link">Read on LinkedIn &rarr;</span>
+        <span class="linkedin-card-link" data-i18n="read_linkedin">Read on LinkedIn &rarr;</span>
       </a>
       
       <a href="https://www.linkedin.com/posts/landkreis-mittelsachsen_mut-kapital-wirkung-frauen-gestalten-ugcPost-7389619833786494976-hsDP" target="_blank" rel="noopener" class="linkedin-card" style="text-decoration:none;">
@@ -1600,7 +1708,7 @@ on product design in a larger team context.</p>
           <span class="linkedin-stat">&#128172; 6</span>
         </div>
         
-        <span class="linkedin-card-link">Read on LinkedIn &rarr;</span>
+        <span class="linkedin-card-link" data-i18n="read_linkedin">Read on LinkedIn &rarr;</span>
       </a>
       
       <a href="https://www.linkedin.com/posts/leonardo-bornh%C3%A4u%C3%9Fer_bootstrapping-deeptech-xletix-activity-7348995660454490114-dvav" target="_blank" rel="noopener" class="linkedin-card" style="text-decoration:none;">
@@ -1623,7 +1731,7 @@ on product design in a larger team context.</p>
           <span class="linkedin-stat">&#128172; 7</span>
         </div>
         
-        <span class="linkedin-card-link">Read on LinkedIn &rarr;</span>
+        <span class="linkedin-card-link" data-i18n="read_linkedin">Read on LinkedIn &rarr;</span>
       </a>
       
       <a href="https://www.linkedin.com/posts/activity-7262738115109302273-4SAF" target="_blank" rel="noopener" class="linkedin-card" style="text-decoration:none;">
@@ -1641,7 +1749,7 @@ on product design in a larger team context.</p>
         </div>
         <div class="linkedin-card-body">From our recent activity — building at the intersection of explainable AI, tokenized fundraising, and European deep-tech. Follow along for updates on cNode, Creativate AI Studio, and the journey of turning research into real-world decision intelligence.</div>
         
-        <span class="linkedin-card-link">Read on LinkedIn &rarr;</span>
+        <span class="linkedin-card-link" data-i18n="read_linkedin">Read on LinkedIn &rarr;</span>
       </a>
       
     </div>
@@ -1653,7 +1761,7 @@ on product design in a larger team context.</p>
   <section class="section" id="contact">
     <div class="contact-inner">
       <h2><span class="gradient-text">Let&#39;s talk</span></h2>
-      <p>Open to conversations about product, technology, and building things that matter.</p>
+      <p data-i18n="contact_text">Open to conversations about product, technology, and building things that matter.</p>
       <div class="contact-links">
         <a href="mailto:leonardo@creativate.tech" class="contact-link">&#9993; Email</a>
         <a href="https://www.linkedin.com/in/leonardo-bornh%C3%A4u%C3%9Fer/" target="_blank" rel="noopener" class="contact-link">&#128279; LinkedIn</a>
@@ -1674,7 +1782,7 @@ on product design in a larger team context.</p>
   </button>
 
   <script>
-    // Scroll-triggered section animations
+    // ─── Scroll-triggered section animations ───
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1682,8 +1790,123 @@ on product design in a larger team context.</p>
         }
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
     document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+    // ─── Burger Menu ───
+    function toggleMenu() {
+      const burger = document.querySelector('.burger');
+      const menu = document.getElementById('mobileMenu');
+      burger.classList.toggle('open');
+      menu.classList.toggle('open');
+      document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+    }
+    function closeMenu() {
+      const burger = document.querySelector('.burger');
+      const menu = document.getElementById('mobileMenu');
+      burger.classList.remove('open');
+      menu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ─── i18n Translations ───
+    const i18n = {
+      en: {
+        nav_about: "About", nav_services: "Stack", nav_experience: "Experience",
+        nav_projects: "Projects", nav_posts: "Posts", nav_contact: "Contact",
+        hero_subtitle: "11 years of starting things, breaking things, and figuring it out \u2014 now looking to bring that experience to a team where I can contribute and keep learning.",
+        cta_talk: "Let\u2019s talk",
+        label_about: "About", title_about: "Background",
+        about_text: "I\u2019ve spent the last decade building ventures \u2014 some worked, some didn\u2019t, all taught me something. My side projects (c-node.ai, Creativate AI Studio) keep me sharp, but what I\u2019m really looking for is a team. A place where I can bring what I\u2019ve learned about product, business development, and getting things off the ground, and combine it with the structure and perspective that comes from working with good people.\nI don\u2019t have all the answers, but I\u2019m reliable, I care about the work, and I\u2019m not afraid to do the unglamorous stuff that actually moves things forward.",
+        label_services: "Services", title_services: "What I Do",
+        subtitle_services: "How I help companies build great products and scale effectively.",
+        label_career: "Career", title_experience: "Experience",
+        subtitle_experience: "Where I\u2019ve built, led, and learned.",
+        label_projects: "Projects", title_projects: "What I\u2019m Working On",
+        subtitle_projects: "Side ventures and ongoing projects.",
+        label_testimonials: "Testimonials", title_testimonials: "What Others Say",
+        subtitle_testimonials: "Recommendations from colleagues and mentors.",
+        label_featured: "Featured", title_posts: "LinkedIn Posts",
+        subtitle_posts: "Thoughts on product, technology, and building ventures.",
+        contact_text: "Open to conversations about product, technology, and building things that matter.",
+        visit_link: "Visit \u2192",
+        read_linkedin: "Read on LinkedIn \u2192"
+      },
+      de: {
+        nav_about: "\u00dcber mich", nav_services: "Kompetenzen", nav_experience: "Erfahrung",
+        nav_projects: "Projekte", nav_posts: "Beitr\u00e4ge", nav_contact: "Kontakt",
+        hero_subtitle: "11 Jahre Gr\u00fcnden, Scheitern und Weitermachen \u2014 jetzt auf der Suche nach einem Team, in dem ich meine Erfahrung einbringen und weiter wachsen kann.",
+        cta_talk: "Schreib mir",
+        label_about: "\u00dcber mich", title_about: "Hintergrund",
+        about_text: "Das letzte Jahrzehnt habe ich damit verbracht, Unternehmen aufzubauen \u2014 manche haben funktioniert, manche nicht, aber alle haben mir etwas beigebracht. Meine Nebenprojekte (c-node.ai, Creativate AI Studio) halten mich auf dem Laufenden, aber was ich wirklich suche, ist ein Team. Ein Ort, an dem ich mein Wissen \u00fcber Produkt, Business Development und Unternehmensgr\u00fcndung einbringen kann \u2014 kombiniert mit der Struktur und Perspektive, die man bekommt, wenn man mit guten Leuten zusammenarbeitet.\nIch habe nicht auf alles eine Antwort, aber ich bin zuverl\u00e4ssig, mir liegt die Arbeit am Herzen und ich scheue mich nicht vor den unspektakul\u00e4ren Aufgaben, die Dinge wirklich voranbringen.",
+        label_services: "Leistungen", title_services: "Was ich mache",
+        subtitle_services: "Wie ich Unternehmen helfe, gro\u00dfartige Produkte zu bauen und effektiv zu wachsen.",
+        label_career: "Karriere", title_experience: "Erfahrung",
+        subtitle_experience: "Wo ich aufgebaut, gef\u00fchrt und gelernt habe.",
+        label_projects: "Projekte", title_projects: "Woran ich arbeite",
+        subtitle_projects: "Nebengesch\u00e4fte und laufende Projekte.",
+        label_testimonials: "Referenzen", title_testimonials: "Was andere sagen",
+        subtitle_testimonials: "Empfehlungen von Kollegen und Mentoren.",
+        label_featured: "Ausgew\u00e4hlt", title_posts: "LinkedIn-Beitr\u00e4ge",
+        subtitle_posts: "Gedanken zu Produkt, Technologie und Unternehmertum.",
+        contact_text: "Offen f\u00fcr Gespr\u00e4che \u00fcber Produkt, Technologie und Arbeit, die wirklich z\u00e4hlt.",
+        visit_link: "Besuchen \u2192",
+        read_linkedin: "Auf LinkedIn lesen \u2192"
+      },
+      fr: {
+        nav_about: "\u00c0 propos", nav_services: "Comp\u00e9tences", nav_experience: "Exp\u00e9rience",
+        nav_projects: "Projets", nav_posts: "Articles", nav_contact: "Contact",
+        hero_subtitle: "11 ans \u00e0 cr\u00e9er, \u00e9chouer et avancer \u2014 aujourd\u2019hui \u00e0 la recherche d\u2019une \u00e9quipe o\u00f9 je peux apporter mon exp\u00e9rience et continuer \u00e0 apprendre.",
+        cta_talk: "\u00c9crivez-moi",
+        label_about: "\u00c0 propos", title_about: "Parcours",
+        about_text: "J\u2019ai pass\u00e9 la derni\u00e8re d\u00e9cennie \u00e0 cr\u00e9er des entreprises \u2014 certaines ont march\u00e9, d\u2019autres non, mais chacune m\u2019a appris quelque chose. Mes projets annexes (c-node.ai, Creativate AI Studio) me tiennent en forme, mais ce que je cherche vraiment, c\u2019est une \u00e9quipe. Un endroit o\u00f9 je peux apporter ce que j\u2019ai appris sur le produit, le d\u00e9veloppement commercial et le lancement de projets, et le combiner avec la structure et la perspective qui viennent du travail avec des gens bien.\nJe n\u2019ai pas toutes les r\u00e9ponses, mais je suis fiable, le travail me tient \u00e0 c\u0153ur, et je n\u2019ai pas peur des t\u00e2ches ingrates qui font vraiment avancer les choses.",
+        label_services: "Services", title_services: "Ce que je fais",
+        subtitle_services: "Comment j\u2019aide les entreprises \u00e0 cr\u00e9er d\u2019excellents produits et \u00e0 grandir efficacement.",
+        label_career: "Carri\u00e8re", title_experience: "Exp\u00e9rience",
+        subtitle_experience: "L\u00e0 o\u00f9 j\u2019ai construit, dirig\u00e9 et appris.",
+        label_projects: "Projets", title_projects: "Mes projets en cours",
+        subtitle_projects: "Projets annexes et initiatives en cours.",
+        label_testimonials: "R\u00e9f\u00e9rences", title_testimonials: "Ce que disent les autres",
+        subtitle_testimonials: "Recommandations de coll\u00e8gues et mentors.",
+        label_featured: "En vedette", title_posts: "Articles LinkedIn",
+        subtitle_posts: "R\u00e9flexions sur le produit, la technologie et l\u2019entrepreneuriat.",
+        contact_text: "Ouvert aux discussions autour du produit, de la technologie et des projets qui comptent.",
+        visit_link: "Visiter \u2192",
+        read_linkedin: "Lire sur LinkedIn \u2192"
+      }
+    };
+
+    let currentLang = 'en';
+
+    function switchLang(lang) {
+      currentLang = lang;
+      const strings = i18n[lang];
+      if (!strings) return;
+
+      // Update all data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (strings[key]) {
+          el.textContent = strings[key];
+        }
+      });
+
+      // Update active state on all lang buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.trim() === lang.toUpperCase());
+      });
+
+      // Update html lang attribute
+      document.documentElement.lang = lang;
+
+      // Persist choice
+      try { localStorage.setItem('portfolio_lang', lang); } catch(e) {}
+    }
+
+    // Restore language preference
+    try {
+      const saved = localStorage.getItem('portfolio_lang');
+      if (saved && i18n[saved]) switchLang(saved);
+    } catch(e) {}
   </script>
 
 </body>
