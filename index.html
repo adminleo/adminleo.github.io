@@ -214,6 +214,27 @@
       font-size: 0.85rem;
       padding: 0.4rem 0.7rem;
     }
+    .mobile-menu-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-secondary);
+      font-size: 1.3rem;
+      transition: all 0.2s;
+    }
+    .mobile-menu-close:hover {
+      border-color: var(--accent-2);
+      color: var(--accent-2);
+    }
 
     /* ─── Hero ─── */
     .hero {
@@ -1273,6 +1294,7 @@
 
   <!-- Mobile Overlay Menu -->
   <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="closeMenu()" aria-label="Close menu">&times;</button>
     <a href="#about" onclick="closeMenu()" data-i18n="nav_about">About</a>
     <a href="#services" onclick="closeMenu()" data-i18n="nav_services">Stack</a>
     <a href="#experience" onclick="closeMenu()" data-i18n="nav_experience">Experience</a>
