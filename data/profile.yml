@@ -231,6 +231,12 @@ languages:
     level: Native
   - language: English
     level: Professional
+  - language: Spanish
+    level: Business fluent
+  - language: Italian
+    level: Basic
+  - language: Russian
+    level: Basic
 
 recommendations:
   - name: Lisa Bennewitz
