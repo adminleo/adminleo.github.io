@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leonardo Bornhaeusser — Builder Looking for a Team</title>
-  <meta name="description" content="11 years of starting things, breaking things, and figuring it out — now looking to bring that experience to a team where I can contribute and keep learning.">
+  <title>Leonardo Bornhaeusser — Product · Innovation · AI</title>
+  <meta name="description" content="CEO &amp; Co-Founder at Creativate AI Studio | AI Decision Intelligence | Product &amp; Innovation | Open to part-time leadership &amp; advisory roles">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -648,6 +648,39 @@
     }
     .project-link:hover { color: #67e8f9; }
 
+    /* ─── Quick Links (Linktree) ─── */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .link-card:hover {
+      border-color: var(--accent-2);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+      color: var(--accent-2);
+    }
+    .link-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .link-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     /* ─── Recommendations ─── */
     .reco-grid {
       display: grid;
@@ -1100,6 +1133,13 @@
         color: #6d28d9 !important;
       }
       .project-link { color: #4f46e5 !important; }
+      .link-card {
+        background: #f0f0f5 !important;
+        border-color: #ddd !important;
+        color: #444 !important;
+        break-inside: avoid;
+      }
+      .link-card:hover { color: #444 !important; }
       .reco-card, .linkedin-card {
         background: #f8f8fa !important;
         border-color: #e5e5e5 !important;
@@ -1152,6 +1192,7 @@
     @media (max-width: 1024px) {
       .services-grid { grid-template-columns: 1fr 1fr; }
       .projects-grid { grid-template-columns: 1fr 1fr; }
+      .links-grid { grid-template-columns: 1fr 1fr; }
       .hero { gap: 3rem; padding: 5rem 2rem 4rem; }
       .hero-image img { width: 220px; height: 220px; }
     }
@@ -1211,6 +1252,11 @@
 
       /* Projects — single column */
       .projects-grid { grid-template-columns: 1fr; gap: 1rem; }
+
+      /* Links — two columns on mobile */
+      .links-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+      .link-card { padding: 0.75rem 1rem; }
+      .link-title { font-size: 0.78rem; }
       .project-card { padding: 1.5rem 1.25rem; }
       .project-card h3 { font-size: 1rem; }
       .project-card p { font-size: 0.82rem; }
@@ -1277,9 +1323,10 @@
         <a href="#about" data-i18n="nav_about">About</a>
         <a href="#services" data-i18n="nav_services">Stack</a>
         <a href="#experience" data-i18n="nav_experience">Experience</a>
+        <a href="#education" data-i18n="nav_education">Education</a>
         <a href="#projects" data-i18n="nav_projects">Projects</a>
-        <a href="#posts" data-i18n="nav_posts">Posts</a>
         <a href="#contact" data-i18n="nav_contact">Contact</a>
+        <a href="cv.html" data-i18n="nav_cv">CV</a>
         <div class="lang-switcher">
           <button class="lang-btn active" onclick="switchLang('en')" title="English">EN</button>
           <button class="lang-btn" onclick="switchLang('de')" title="Deutsch">DE</button>
@@ -1298,9 +1345,10 @@
     <a href="#about" onclick="closeMenu()" data-i18n="nav_about">About</a>
     <a href="#services" onclick="closeMenu()" data-i18n="nav_services">Stack</a>
     <a href="#experience" onclick="closeMenu()" data-i18n="nav_experience">Experience</a>
+    <a href="#education" onclick="closeMenu()" data-i18n="nav_education">Education</a>
     <a href="#projects" onclick="closeMenu()" data-i18n="nav_projects">Projects</a>
-    <a href="#posts" onclick="closeMenu()" data-i18n="nav_posts">Posts</a>
     <a href="#contact" onclick="closeMenu()" data-i18n="nav_contact">Contact</a>
+    <a href="cv.html" onclick="closeMenu()" data-i18n="nav_cv">CV</a>
     <div class="lang-switcher-mobile">
       <button class="lang-btn active" onclick="switchLang('en')" title="English">EN</button>
       <button class="lang-btn" onclick="switchLang('de')" title="Deutsch">DE</button>
@@ -1311,9 +1359,9 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-text">
-      <div class="hero-label">Builder Looking for a Team</div>
+      <div class="hero-label">Product · Innovation · AI</div>
       <h1>Leonardo<br><span class="gradient-text">Bornhaeusser</span></h1>
-      <p class="subtitle" data-i18n="hero_subtitle">11 years of starting things, breaking things, and figuring it out — now looking to bring that experience to a team where I can contribute and keep learning.</p>
+      <p class="subtitle" data-i18n="hero_subtitle">CEO &amp; Co-Founder at Creativate AI Studio | AI Decision Intelligence | Product &amp; Innovation | Open to part-time leadership &amp; advisory roles</p>
       <div class="hero-cta">
         <a href="mailto:leonardo@creativate.tech" class="btn btn-gradient" data-i18n="cta_talk">Let&#39;s talk</a>
         <a href="https://www.linkedin.com/in/leonardo-bornh%C3%A4u%C3%9Fer/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
@@ -1329,7 +1377,9 @@
   <section class="section" id="about">
     <div class="section-label" data-i18n="label_about">About</div>
     <h2 class="section-title" data-i18n="title_about">Background</h2>
-    <p class="about-text" data-i18n="about_text">I&#39;ve spent the last decade building ventures — some worked, some didn&#39;t, all taught me something. My side projects (c-node.ai, Creativate AI Studio) keep me sharp, but what I&#39;m really looking for is a team. A place where I can bring what I&#39;ve learned about product, business development, and getting things off the ground, and combine it with the structure and perspective that comes from working with good people. I don&#39;t have all the answers, but I&#39;m reliable, I care about the work, and I&#39;m not afraid to do the unglamorous stuff that actually moves things forward.
+    <p class="about-text" data-i18n="about_text">Founder building AI decision software and collaborating with companies on product and innovation projects. As CEO &amp; Co-Founder of Creativate AI Studio, I&#39;m developing cNode — a platform that helps teams structure complex decisions, compare scenarios, and generate explainable AI-assisted recommendations. Alongside the product, we launched AI Playbook, a multilingual knowledge base covering the EU AI Act, GDPR, and responsible AI adoption.
+Over the past decade I&#39;ve built and operated multiple ventures across product design, business development, and software. My work usually sits at the intersection of product strategy, AI, and early-stage execution — turning ideas into working systems and prototypes.
+In addition to running Creativate, I collaborate with companies on part-time or project engagements around product strategy, AI product development, MVP architecture, and early-stage venture building. I enjoy working with small teams that move quickly and build meaningful products.
 </p>
 
     <!-- Skills Pills -->
@@ -1384,19 +1434,19 @@
       <div class="service-card">
         <div class="service-icon">🎯</div>
         <h3>Product &amp; Innovation</h3>
-        <p>I&#39;ve built products from scratch and learned what works (and what doesn&#39;t) through a lot of trial and error. Happy to help with user research, roadmapping, or just rolling up sleeves on whatever needs doing.</p>
+        <p>From zero-to-one product builds to scaling existing platforms. User research, roadmapping, prototyping, and hands-on execution — across B2B SaaS, deep tech, and digital products.</p>
       </div>
       
       <div class="service-card">
         <div class="service-icon">🤖</div>
-        <h3>AI Strategy &amp; Consulting</h3>
-        <p>Working on explainable AI and EU AI Act compliance through Creativate. I can help teams think through how to adopt AI practically — not just the shiny parts, but the messy real-world stuff too.</p>
+        <h3>AI Decision Intelligence</h3>
+        <p>Building explainable AI systems at Creativate. EU AI Act compliance, responsible AI adoption, and turning complex AI capabilities into practical tools teams actually use.</p>
       </div>
       
       <div class="service-card">
         <div class="service-icon">📈</div>
-        <h3>Business Development &amp; Operations</h3>
-        <p>Building partnerships, sorting out processes, connecting dots between teams. I&#39;ve done this across startups and a couple of corporate settings — I&#39;m not an expert at everything, but I know how to make progress.</p>
+        <h3>Business Development &amp; Venture Building</h3>
+        <p>Partnerships, go-to-market strategy, and operational setup for early-stage ventures. Experience across startups, accelerators, and corporate innovation — connecting dots between teams, investors, and markets.</p>
       </div>
       
     </div>
@@ -1413,23 +1463,28 @@
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>Co-Founder &amp; Product Lead</h3>
+          <h3>CEO &amp; Co-Founder</h3>
           <div class="company">Creativate AIStudio</div>
           <div class="period">Apr 2024 - Present // Berlin, Germany</div>
-          <p>Co-founded a small deep-tech venture building c-node.ai, an explainable AI
-forecasting tool for SMEs. I handle product direction and technical prototyping
-alongside two co-founders. We were accepted into the Futury accelerator
-and secured early angel investment through Tokenize.it.</p>
+          <p>CEO &amp; Co-Founder of a deep-tech venture studio building cNode, an AI-augmented
+decision platform for SMEs, plus AI Playbook, a multilingual regulatory knowledge
+base. I lead product direction, technical architecture, and prototyping alongside
+two co-founders. Accepted into the Futury accelerator and secured early angel
+investment through Tokenize.it.</p>
           
           <div class="highlight-tags">
             
-            <span class="highlight-tag">Built and iterated on the cNode prototype (Python, FastAPI, Next.js)</span>
+            <span class="highlight-tag">Built cNode decision platform (Next.js 14, FastAPI, PostgreSQL/TimescaleDB, multi-provider AI)</span>
             
-            <span class="highlight-tag">Designed EU AI Act compliance approach</span>
+            <span class="highlight-tag">Shipped AI Playbook — multilingual compliance knowledge base (30+ articles, 3 languages)</span>
+            
+            <span class="highlight-tag">Designed EU AI Act compliance approach for the product suite</span>
             
             <span class="highlight-tag">Part of Futury Female Founders accelerator cohort</span>
             
             <span class="highlight-tag">Secured early angel funding via Tokenize.it</span>
+            
+            <span class="highlight-tag">Running monorepo ecosystem (Turborepo) with 6+ apps</span>
             
           </div>
           
@@ -1439,12 +1494,11 @@ and secured early angel investment through Tokenize.it.</p>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>Founder</h3>
+          <h3>Founder &amp; Managing Director</h3>
           <div class="company">Born2Hold Ventures GmbH</div>
           <div class="period">Dec 2022 - Present // Berlin, Germany</div>
-          <p>My personal venture holding. I advise a handful of early-stage founders
-on governance, structuring, and the things nobody teaches you about
-actually running a company.</p>
+          <p>Personal venture holding supporting early-stage founders with product
+development, governance, and venture structuring.</p>
           
           <div class="highlight-tags">
             
@@ -1462,18 +1516,17 @@ actually running a company.</p>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>Co-Founder &amp; Operations</h3>
+          <h3>Co-Founder &amp; Head of Operations</h3>
           <div class="company">Camsol.io</div>
           <div class="period">Nov 2022 - Apr 2025 // Berlin, Germany</div>
-          <p>Co-founded a B2B web development agency. I ran day-to-day operations,
-managed client relationships, and helped shape the product and UX side
-of our projects. We grew the team and client base before I moved on.</p>
+          <p>Co-founded a B2B web development agency. Led operations, client delivery,
+and product direction while growing the team and project portfolio.</p>
           
           <div class="highlight-tags">
             
-            <span class="highlight-tag">Ran operations and client management for B2B agency</span>
+            <span class="highlight-tag">Led operations and client management for B2B agency</span>
             
-            <span class="highlight-tag">Contributed to product decisions and UX strategy</span>
+            <span class="highlight-tag">Drove product decisions and UX strategy</span>
             
             <span class="highlight-tag">Grew the team from 2 to a small cross-functional group</span>
             
@@ -1528,8 +1581,162 @@ on product design in a larger team context.</p>
         </div>
       </div>
       
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Product Designer &amp; ExO Consultant</h3>
+          <div class="company">Bornhäußer &amp; Friends GmbH</div>
+          <div class="period">Jul 2019 - Sep 2021 // Berlin, Germany</div>
+          <p>My first company — a small consultancy focused on product design and
+Exponential Organizations methodology. Worked with early-stage startups
+on product identity, UX, and organizational transformation.</p>
+          
+          <div class="highlight-tags">
+            
+            <span class="highlight-tag">Product design for early-stage startups</span>
+            
+            <span class="highlight-tag">Certified ExO Consultant (OpenExO)</span>
+            
+            <span class="highlight-tag">Business model innovation workshops</span>
+            
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Student Consultant</h3>
+          <div class="company">Capufaktur e.V.</div>
+          <div class="period">Oct 2019 - Sep 2021 // Greifswald, Germany</div>
+          <p>Student-run consulting organization at Universität Greifswald.
+Worked on real consulting projects for local businesses and organizations
+while studying economics.</p>
+          
+          <div class="highlight-tags">
+            
+            <span class="highlight-tag">Consulting projects for regional businesses</span>
+            
+            <span class="highlight-tag">Strategy and market analysis</span>
+            
+            <span class="highlight-tag">Team leadership and project management</span>
+            
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Founding Vice President</h3>
+          <div class="company">Rotaract Berlin International</div>
+          <div class="period">Aug 2017 - Aug 2018 // Berlin, Germany</div>
+          <p>Co-founded the international chapter of Rotaract in Berlin.
+Organized events, built partnerships, and helped grow the community
+from scratch.</p>
+          
+          <div class="highlight-tags">
+            
+            <span class="highlight-tag">Co-founded international Rotaract chapter</span>
+            
+            <span class="highlight-tag">Event organization and community building</span>
+            
+            <span class="highlight-tag">Partnership development</span>
+            
+          </div>
+          
+        </div>
+      </div>
+      
     </div>
   </section>
+
+  <!-- Education -->
+  
+  <div class="section-divider"></div>
+  <section class="section" id="education">
+    <div class="section-label" data-i18n="label_education">Education</div>
+    <h2 class="section-title" data-i18n="title_education">Education</h2>
+    <p class="section-subtitle" data-i18n="subtitle_education">Academic background and certifications.</p>
+    <div class="timeline">
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Bachelor of Science - Wirtschaftsinformatik (Business Informatics)</h3>
+          <div class="company">WINGS Professional Studies - Wismar University</div>
+          <div class="period">Oct 2021 - Sep 2022</div>
+          
+          <div class="highlight-tags">
+            
+            <span class="highlight-tag">Agile Methods</span>
+            
+            <span class="highlight-tag">Product Development</span>
+            
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Bachelor of Science - Economics</h3>
+          <div class="company">Universität Greifswald</div>
+          <div class="period">2018 - 2021</div>
+          
+          <div class="highlight-tags">
+            
+            <span class="highlight-tag">SWOT Analysis specialization</span>
+            
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>UX/UI Design Bootcamp</h3>
+          <div class="company">Ironhack</div>
+          <div class="period">2020</div>
+          
+          <div class="highlight-tags">
+            
+            <span class="highlight-tag">User Research &amp; Testing</span>
+            
+            <span class="highlight-tag">Wireframing &amp; Prototyping</span>
+            
+            <span class="highlight-tag">Design Thinking</span>
+            
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Bachelor of Arts - International Economics (started)</h3>
+          <div class="company">BSP Business School Berlin</div>
+          <div class="period">2016 - 2018</div>
+          
+          <div class="highlight-tags">
+            
+            <span class="highlight-tag">International Business</span>
+            
+            <span class="highlight-tag">Transferred to Universität Greifswald</span>
+            
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
 
   <!-- Projects -->
   
@@ -1541,20 +1748,24 @@ on product design in a larger team context.</p>
     <div class="projects-grid">
       
       <div class="project-card">
-        <h3><a href="https://c-node.ai" target="_blank" rel="noopener">c-node.ai</a></h3>
-        <p>Explainable AI forecasting platform — modular decision intelligence for SMEs. Our core product at Creativate, turning data into scenarios leaders can actually defend.</p>
+        <h3><a href="https://c-node.ai" target="_blank" rel="noopener">cNode — Decision Workspace</a></h3>
+        <p>AI-augmented decision platform where teams define decisions, set weighted goals, state assumptions, create and compare scenarios, get LLM-powered recommendations, and export audit-ready decision logs. Full-stack SaaS with multi-provider AI abstraction, scoring engine, Monte Carlo analysis, and multi-tenant RBAC.</p>
         
         <div class="project-tech">
           
-          <span>Python</span>
+          <span>Next.js 14</span>
           
           <span>FastAPI</span>
           
-          <span>Next.js</span>
+          <span>PostgreSQL / TimescaleDB</span>
           
-          <span>PostgreSQL</span>
+          <span>Celery / Redis</span>
           
-          <span>TimescaleDB</span>
+          <span>Multi-Provider AI (Anthropic, OpenAI, Google)</span>
+          
+          <span>Docker Compose</span>
+          
+          <span>JWT / RBAC</span>
           
         </div>
         
@@ -1564,37 +1775,39 @@ on product design in a larger team context.</p>
       </div>
       
       <div class="project-card">
-        <h3><a href="https://creativate.ai.studio" target="_blank" rel="noopener">Creativate AI Studio</a></h3>
-        <p>Deep-tech consulting and venture studio. We help companies integrate AI responsibly — EU AI Act ready, business-first. My entrepreneurial home base.</p>
+        <h3><a href="https://creativate.tech" target="_blank" rel="noopener">Creativate AIStudio</a></h3>
+        <p>Deep-tech venture studio and consulting company. We build AI products and help companies integrate AI responsibly — EU AI Act compliant, business-first. Runs a monorepo ecosystem with company website, content hub, IP data room, and client platforms.</p>
         
         <div class="project-tech">
           
-          <span>Python</span>
+          <span>Next.js / TypeScript</span>
           
-          <span>TypeScript</span>
+          <span>Turborepo</span>
+          
+          <span>Tailwind CSS</span>
           
           <span>Docker</span>
-          
-          <span>Anthropic API</span>
           
         </div>
         
         
-        <a href="https://creativate.ai.studio" target="_blank" rel="noopener" class="project-link" data-i18n="visit_link">Visit &rarr;</a>
+        <a href="https://creativate.tech" target="_blank" rel="noopener" class="project-link" data-i18n="visit_link">Visit &rarr;</a>
         
       </div>
       
       <div class="project-card">
         <h3><a href="https://ai-playbook.eu" target="_blank" rel="noopener">AI Playbook</a></h3>
-        <p>Practical frameworks and playbooks for teams adopting AI — from strategy to implementation. Built from real consulting engagements.</p>
+        <p>Multilingual AI compliance and regulatory knowledge base covering EU AI Act, GDPR, EDPB guidelines, and responsible AI practices. 30+ articles across 7 categories, interactive readiness assessments, full-text search, and glossary. Content-driven lead-gen tool.</p>
         
         <div class="project-tech">
           
-          <span>AI Strategy</span>
+          <span>Next.js / MDX</span>
           
-          <span>Prompt Engineering</span>
+          <span>i18n (DE/EN/FR)</span>
           
-          <span>Workshops</span>
+          <span>Full-Text Search</span>
+          
+          <span>HubSpot Analytics</span>
           
         </div>
         
@@ -1778,6 +1991,48 @@ on product design in a larger team context.</p>
   </section>
   
 
+  <!-- Quick Links -->
+  <div class="section-divider"></div>
+  <section class="section" id="links">
+    <div class="section-label" data-i18n="label_links">Links</div>
+    <h2 class="section-title" data-i18n="title_links">Quick Links</h2>
+    <p class="section-subtitle" data-i18n="subtitle_links">Everything in one place.</p>
+    <div class="links-grid">
+      <a href="cv.html" class="link-card">
+        <span class="link-icon">&#128196;</span>
+        <span class="link-title" data-i18n="link_cv">CV / Lebenslauf</span>
+      </a>
+      
+      <a href="https://c-node.ai" target="_blank" rel="noopener" class="link-card">
+        <span class="link-icon">&#127760;</span>
+        <span class="link-title">cNode — Decision Workspace</span>
+      </a>
+      
+      <a href="https://creativate.tech" target="_blank" rel="noopener" class="link-card">
+        <span class="link-icon">&#127760;</span>
+        <span class="link-title">Creativate AIStudio</span>
+      </a>
+      
+      <a href="https://ai-playbook.eu" target="_blank" rel="noopener" class="link-card">
+        <span class="link-icon">&#127760;</span>
+        <span class="link-title">AI Playbook</span>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/leonardo-bornh%C3%A4u%C3%9Fer/" target="_blank" rel="noopener" class="link-card">
+        <span class="link-icon">&#128279;</span>
+        <span class="link-title">LinkedIn</span>
+      </a>
+      <a href="https://github.com/adminleo" target="_blank" rel="noopener" class="link-card">
+        <span class="link-icon">&#128187;</span>
+        <span class="link-title">GitHub</span>
+      </a>
+      <a href="mailto:leonardo@creativate.tech" class="link-card">
+        <span class="link-icon">&#9993;</span>
+        <span class="link-title">Email</span>
+      </a>
+    </div>
+  </section>
+
   <!-- Contact -->
   <div class="section-divider"></div>
   <section class="section" id="contact">
@@ -1834,17 +2089,23 @@ on product design in a larger team context.</p>
     const i18n = {
       en: {
         nav_about: "About", nav_services: "Stack", nav_experience: "Experience",
-        nav_projects: "Projects", nav_posts: "Posts", nav_contact: "Contact",
-        hero_subtitle: "11 years of starting things, breaking things, and figuring it out \u2014 now looking to bring that experience to a team where I can contribute and keep learning.",
+        nav_education: "Education", nav_projects: "Projects", nav_posts: "Posts",
+        nav_contact: "Contact", nav_cv: "CV",
+        hero_subtitle: "CEO & Co-Founder at Creativate AI Studio | AI Decision Intelligence | Product & Innovation | Open to part-time leadership & advisory roles",
         cta_talk: "Let\u2019s talk",
         label_about: "About", title_about: "Background",
-        about_text: "I\u2019ve spent the last decade building ventures \u2014 some worked, some didn\u2019t, all taught me something. My side projects (c-node.ai, Creativate AI Studio) keep me sharp, but what I\u2019m really looking for is a team. A place where I can bring what I\u2019ve learned about product, business development, and getting things off the ground, and combine it with the structure and perspective that comes from working with good people.\nI don\u2019t have all the answers, but I\u2019m reliable, I care about the work, and I\u2019m not afraid to do the unglamorous stuff that actually moves things forward.",
+        about_text: "Founder building AI decision software and collaborating with companies on product and innovation projects. As CEO & Co-Founder of Creativate AI Studio, I\u2019m developing cNode \u2014 a platform that helps teams structure complex decisions, compare scenarios, and generate explainable AI-assisted recommendations. Alongside the product, we launched AI Playbook, a multilingual knowledge base covering the EU AI Act, GDPR, and responsible AI adoption.\n\nOver the past decade I\u2019ve built and operated multiple ventures across product design, business development, and software. My work usually sits at the intersection of product strategy, AI, and early-stage execution \u2014 turning ideas into working systems and prototypes.\n\nIn addition to running Creativate, I collaborate with companies on part-time or project engagements around product strategy, AI product development, MVP architecture, and early-stage venture building. I enjoy working with small teams that move quickly and build meaningful products.",
         label_services: "Services", title_services: "What I Do",
         subtitle_services: "How I help companies build great products and scale effectively.",
         label_career: "Career", title_experience: "Experience",
         subtitle_experience: "Where I\u2019ve built, led, and learned.",
-        label_projects: "Projects", title_projects: "What I\u2019m Working On",
-        subtitle_projects: "Side ventures and ongoing projects.",
+        label_education: "Education", title_education: "Education",
+        subtitle_education: "Academic background and certifications.",
+        label_projects: "Projects", title_projects: "What I\u2019m Building",
+        subtitle_projects: "Active ventures and products.",
+        label_links: "Links", title_links: "Quick Links",
+        subtitle_links: "Everything in one place.",
+        link_cv: "CV / Lebenslauf",
         label_testimonials: "Testimonials", title_testimonials: "What Others Say",
         subtitle_testimonials: "Recommendations from colleagues and mentors.",
         label_featured: "Featured", title_posts: "LinkedIn Posts",
@@ -1855,17 +2116,23 @@ on product design in a larger team context.</p>
       },
       de: {
         nav_about: "\u00dcber mich", nav_services: "Kompetenzen", nav_experience: "Erfahrung",
-        nav_projects: "Projekte", nav_posts: "Beitr\u00e4ge", nav_contact: "Kontakt",
-        hero_subtitle: "11 Jahre Gr\u00fcnden, Scheitern und Weitermachen \u2014 jetzt auf der Suche nach einem Team, in dem ich meine Erfahrung einbringen und weiter wachsen kann.",
+        nav_education: "Bildung", nav_projects: "Projekte", nav_posts: "Beitr\u00e4ge",
+        nav_contact: "Kontakt", nav_cv: "Lebenslauf",
+        hero_subtitle: "CEO & Co-Founder bei Creativate AI Studio | KI-Entscheidungsintelligenz | Produkt & Innovation | Offen f\u00fcr Teilzeit-F\u00fchrung & Beratung",
         cta_talk: "Schreib mir",
         label_about: "\u00dcber mich", title_about: "Hintergrund",
-        about_text: "Das letzte Jahrzehnt habe ich damit verbracht, Unternehmen aufzubauen \u2014 manche haben funktioniert, manche nicht, aber alle haben mir etwas beigebracht. Meine Nebenprojekte (c-node.ai, Creativate AI Studio) halten mich auf dem Laufenden, aber was ich wirklich suche, ist ein Team. Ein Ort, an dem ich mein Wissen \u00fcber Produkt, Business Development und Unternehmensgr\u00fcndung einbringen kann \u2014 kombiniert mit der Struktur und Perspektive, die man bekommt, wenn man mit guten Leuten zusammenarbeitet.\nIch habe nicht auf alles eine Antwort, aber ich bin zuverl\u00e4ssig, mir liegt die Arbeit am Herzen und ich scheue mich nicht vor den unspektakul\u00e4ren Aufgaben, die Dinge wirklich voranbringen.",
+        about_text: "Gr\u00fcnder, der KI-Entscheidungssoftware baut und mit Unternehmen an Produkt- und Innovationsprojekten zusammenarbeitet. Als CEO & Co-Founder von Creativate AI Studio entwickle ich cNode \u2014 eine Plattform, die Teams hilft, komplexe Entscheidungen zu strukturieren, Szenarien zu vergleichen und erkl\u00e4rbare KI-gest\u00fctzte Empfehlungen zu generieren. Daneben haben wir AI Playbook gestartet, eine mehrsprachige Wissensdatenbank zum EU AI Act, DSGVO und verantwortungsvoller KI-Adoption.\n\nIn den letzten zehn Jahren habe ich mehrere Unternehmen aufgebaut und betrieben \u2014 in Produktdesign, Business Development und Software. Meine Arbeit liegt meist an der Schnittstelle von Produktstrategie, KI und Early-Stage-Umsetzung \u2014 Ideen in funktionierende Systeme und Prototypen verwandeln.\n\nNeben Creativate arbeite ich mit Unternehmen an Teilzeit- oder Projektengagements rund um Produktstrategie, KI-Produktentwicklung, MVP-Architektur und Fr\u00fchphasen-Venture-Building. Ich arbeite gerne in kleinen Teams, die schnell vorankommen und sinnvolle Produkte bauen.",
         label_services: "Leistungen", title_services: "Was ich mache",
         subtitle_services: "Wie ich Unternehmen helfe, gro\u00dfartige Produkte zu bauen und effektiv zu wachsen.",
         label_career: "Karriere", title_experience: "Erfahrung",
         subtitle_experience: "Wo ich aufgebaut, gef\u00fchrt und gelernt habe.",
-        label_projects: "Projekte", title_projects: "Woran ich arbeite",
-        subtitle_projects: "Nebengesch\u00e4fte und laufende Projekte.",
+        label_education: "Bildung", title_education: "Ausbildung",
+        subtitle_education: "Akademischer Hintergrund und Zertifizierungen.",
+        label_projects: "Projekte", title_projects: "Woran ich baue",
+        subtitle_projects: "Aktive Ventures und Produkte.",
+        label_links: "Links", title_links: "Schnellzugriff",
+        subtitle_links: "Alles an einem Ort.",
+        link_cv: "Lebenslauf / CV",
         label_testimonials: "Referenzen", title_testimonials: "Was andere sagen",
         subtitle_testimonials: "Empfehlungen von Kollegen und Mentoren.",
         label_featured: "Ausgew\u00e4hlt", title_posts: "LinkedIn-Beitr\u00e4ge",
@@ -1876,17 +2143,23 @@ on product design in a larger team context.</p>
       },
       fr: {
         nav_about: "\u00c0 propos", nav_services: "Comp\u00e9tences", nav_experience: "Exp\u00e9rience",
-        nav_projects: "Projets", nav_posts: "Articles", nav_contact: "Contact",
-        hero_subtitle: "11 ans \u00e0 cr\u00e9er, \u00e9chouer et avancer \u2014 aujourd\u2019hui \u00e0 la recherche d\u2019une \u00e9quipe o\u00f9 je peux apporter mon exp\u00e9rience et continuer \u00e0 apprendre.",
+        nav_education: "Formation", nav_projects: "Projets", nav_posts: "Articles",
+        nav_contact: "Contact", nav_cv: "CV",
+        hero_subtitle: "CEO & Co-Fondateur chez Creativate AI Studio | Intelligence D\u00e9cisionnelle IA | Produit & Innovation | Ouvert aux r\u00f4les de leadership & conseil \u00e0 temps partiel",
         cta_talk: "\u00c9crivez-moi",
         label_about: "\u00c0 propos", title_about: "Parcours",
-        about_text: "J\u2019ai pass\u00e9 la derni\u00e8re d\u00e9cennie \u00e0 cr\u00e9er des entreprises \u2014 certaines ont march\u00e9, d\u2019autres non, mais chacune m\u2019a appris quelque chose. Mes projets annexes (c-node.ai, Creativate AI Studio) me tiennent en forme, mais ce que je cherche vraiment, c\u2019est une \u00e9quipe. Un endroit o\u00f9 je peux apporter ce que j\u2019ai appris sur le produit, le d\u00e9veloppement commercial et le lancement de projets, et le combiner avec la structure et la perspective qui viennent du travail avec des gens bien.\nJe n\u2019ai pas toutes les r\u00e9ponses, mais je suis fiable, le travail me tient \u00e0 c\u0153ur, et je n\u2019ai pas peur des t\u00e2ches ingrates qui font vraiment avancer les choses.",
+        about_text: "Fondateur construisant des logiciels de d\u00e9cision IA et collaborant avec des entreprises sur des projets de produit et d\u2019innovation. En tant que CEO & Co-Fondateur de Creativate AI Studio, je d\u00e9veloppe cNode \u2014 une plateforme qui aide les \u00e9quipes \u00e0 structurer des d\u00e9cisions complexes, comparer des sc\u00e9narios et g\u00e9n\u00e9rer des recommandations explicables assist\u00e9es par l\u2019IA. Nous avons aussi lanc\u00e9 AI Playbook, une base de connaissances multilingue sur le EU AI Act, le RGPD et l\u2019adoption responsable de l\u2019IA.\n\nAu cours de la derni\u00e8re d\u00e9cennie, j\u2019ai construit et g\u00e9r\u00e9 plusieurs ventures dans le design produit, le d\u00e9veloppement commercial et le logiciel. Mon travail se situe g\u00e9n\u00e9ralement \u00e0 l\u2019intersection de la strat\u00e9gie produit, de l\u2019IA et de l\u2019ex\u00e9cution en phase initiale \u2014 transformer des id\u00e9es en syst\u00e8mes fonctionnels et prototypes.\n\nEn plus de diriger Creativate, je collabore avec des entreprises sur des engagements \u00e0 temps partiel autour de la strat\u00e9gie produit, du d\u00e9veloppement de produits IA, de l\u2019architecture MVP et du venture building. J\u2019aime travailler avec de petites \u00e9quipes qui avancent vite et construisent des produits significatifs.",
         label_services: "Services", title_services: "Ce que je fais",
         subtitle_services: "Comment j\u2019aide les entreprises \u00e0 cr\u00e9er d\u2019excellents produits et \u00e0 grandir efficacement.",
         label_career: "Carri\u00e8re", title_experience: "Exp\u00e9rience",
         subtitle_experience: "L\u00e0 o\u00f9 j\u2019ai construit, dirig\u00e9 et appris.",
-        label_projects: "Projets", title_projects: "Mes projets en cours",
-        subtitle_projects: "Projets annexes et initiatives en cours.",
+        label_education: "Formation", title_education: "Formation",
+        subtitle_education: "Parcours acad\u00e9mique et certifications.",
+        label_projects: "Projets", title_projects: "Ce que je construis",
+        subtitle_projects: "Ventures actives et produits.",
+        label_links: "Liens", title_links: "Liens rapides",
+        subtitle_links: "Tout au m\u00eame endroit.",
+        link_cv: "CV / Curriculum Vitae",
         label_testimonials: "R\u00e9f\u00e9rences", title_testimonials: "Ce que disent les autres",
         subtitle_testimonials: "Recommandations de coll\u00e8gues et mentors.",
         label_featured: "En vedette", title_posts: "Articles LinkedIn",

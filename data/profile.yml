@@ -43,49 +43,50 @@ skills:
     - Public Speaking
 
 experience:
-  - title: Co-Founder & Product Lead
+  - title: CEO & Co-Founder
     company: Creativate AIStudio
     url: https://creativate.tech
     period: Apr 2024 - Present
     location: Berlin, Germany
-    type: Side venture
+    type: Self-employed
     description: |
-      Co-founded a small deep-tech venture building c-node.ai, an explainable AI
-      forecasting tool for SMEs. I handle product direction and technical prototyping
-      alongside two co-founders. We were accepted into the Futury accelerator
-      and secured early angel investment through Tokenize.it.
+      CEO & Co-Founder of a deep-tech venture studio building cNode, an AI-augmented
+      decision platform for SMEs, plus AI Playbook, a multilingual regulatory knowledge
+      base. I lead product direction, technical architecture, and prototyping alongside
+      two co-founders. Accepted into the Futury accelerator and secured early angel
+      investment through Tokenize.it.
     highlights:
-      - Built and iterated on the cNode prototype (Python, FastAPI, Next.js)
-      - Designed EU AI Act compliance approach
+      - Built cNode decision platform (Next.js 14, FastAPI, PostgreSQL/TimescaleDB, multi-provider AI)
+      - Shipped AI Playbook — multilingual compliance knowledge base (30+ articles, 3 languages)
+      - Designed EU AI Act compliance approach for the product suite
       - Part of Futury Female Founders accelerator cohort
       - Secured early angel funding via Tokenize.it
+      - Running monorepo ecosystem (Turborepo) with 6+ apps
 
-  - title: Founder
+  - title: Founder & Managing Director
     company: Born2Hold Ventures GmbH
     period: Dec 2022 - Present
     location: Berlin, Germany
     type: Self-employed
     description: |
-      My personal venture holding. I advise a handful of early-stage founders
-      on governance, structuring, and the things nobody teaches you about
-      actually running a company.
+      Personal venture holding supporting early-stage founders with product
+      development, governance, and venture structuring.
     highlights:
       - Small portfolio of early-stage advisory engagements
       - Corporate governance and restructuring support
       - Hands-on founder mentoring
 
-  - title: Co-Founder & Operations
+  - title: Co-Founder & Head of Operations
     company: Camsol.io
     period: Nov 2022 - Apr 2025
     location: Berlin, Germany
     type: Full-time
     description: |
-      Co-founded a B2B web development agency. I ran day-to-day operations,
-      managed client relationships, and helped shape the product and UX side
-      of our projects. We grew the team and client base before I moved on.
+      Co-founded a B2B web development agency. Led operations, client delivery,
+      and product direction while growing the team and project portfolio.
     highlights:
-      - Ran operations and client management for B2B agency
-      - Contributed to product decisions and UX strategy
+      - Led operations and client management for B2B agency
+      - Drove product decisions and UX strategy
       - Grew the team from 2 to a small cross-functional group
 
   - title: Business Development Trainee
@@ -116,13 +117,49 @@ experience:
       - Contributed to frontend development
       - Ran early product-market fit research
 
-education:
-  - degree: Bachelor of Science - Economics
-    institution: "Universit\xE4t Greifswald"
-    period: 2018 - 2021
+  - title: Product Designer & ExO Consultant
+    company: "Bornh\xE4u\xDFer & Friends GmbH"
+    period: Jul 2019 - Sep 2021
+    location: Berlin, Germany
+    type: Self-employed
+    description: |
+      My first company — a small consultancy focused on product design and
+      Exponential Organizations methodology. Worked with early-stage startups
+      on product identity, UX, and organizational transformation.
     highlights:
-      - SWOT Analysis specialization
+      - Product design for early-stage startups
+      - Certified ExO Consultant (OpenExO)
+      - Business model innovation workshops
 
+  - title: Student Consultant
+    company: Capufaktur e.V.
+    period: Oct 2019 - Sep 2021
+    location: Greifswald, Germany
+    type: Part-time
+    description: |
+      Student-run consulting organization at Universität Greifswald.
+      Worked on real consulting projects for local businesses and organizations
+      while studying economics.
+    highlights:
+      - Consulting projects for regional businesses
+      - Strategy and market analysis
+      - Team leadership and project management
+
+  - title: Founding Vice President
+    company: Rotaract Berlin International
+    period: Aug 2017 - Aug 2018
+    location: Berlin, Germany
+    type: Volunteer
+    description: |
+      Co-founded the international chapter of Rotaract in Berlin.
+      Organized events, built partnerships, and helped grow the community
+      from scratch.
+    highlights:
+      - Co-founded international Rotaract chapter
+      - Event organization and community building
+      - Partnership development
+
+education:
   - degree: Bachelor of Science - Wirtschaftsinformatik (Business Informatics)
     institution: WINGS Professional Studies - Wismar University
     period: Oct 2021 - Sep 2022
@@ -130,32 +167,56 @@ education:
       - Agile Methods
       - Product Development
 
+  - degree: Bachelor of Science - Economics
+    institution: "Universit\xE4t Greifswald"
+    period: 2018 - 2021
+    highlights:
+      - SWOT Analysis specialization
+
+  - degree: UX/UI Design Bootcamp
+    institution: Ironhack
+    period: 2020
+    highlights:
+      - User Research & Testing
+      - Wireframing & Prototyping
+      - Design Thinking
+
+  - degree: Bachelor of Arts - International Economics (started)
+    institution: BSP Business School Berlin
+    period: 2016 - 2018
+    highlights:
+      - International Business
+      - Transferred to Universität Greifswald
+
 projects:
-  - name: c-node.ai
-    description: Explainable AI forecasting platform — modular decision intelligence for SMEs. Our core product at Creativate, turning data into scenarios leaders can actually defend.
+  - name: cNode — Decision Workspace
+    description: AI-augmented decision platform where teams define decisions, set weighted goals, state assumptions, create and compare scenarios, get LLM-powered recommendations, and export audit-ready decision logs. Full-stack SaaS with multi-provider AI abstraction, scoring engine, Monte Carlo analysis, and multi-tenant RBAC.
     tech:
-      - Python
+      - Next.js 14
       - FastAPI
-      - Next.js
-      - PostgreSQL
-      - TimescaleDB
+      - PostgreSQL / TimescaleDB
+      - Celery / Redis
+      - Multi-Provider AI (Anthropic, OpenAI, Google)
+      - Docker Compose
+      - JWT / RBAC
     url: https://c-node.ai
 
-  - name: Creativate AI Studio
-    description: Deep-tech consulting and venture studio. We help companies integrate AI responsibly — EU AI Act ready, business-first. My entrepreneurial home base.
+  - name: Creativate AIStudio
+    description: Deep-tech venture studio and consulting company. We build AI products and help companies integrate AI responsibly — EU AI Act compliant, business-first. Runs a monorepo ecosystem with company website, content hub, IP data room, and client platforms.
     tech:
-      - Python
-      - TypeScript
+      - Next.js / TypeScript
+      - Turborepo
+      - Tailwind CSS
       - Docker
-      - Anthropic API
-    url: https://creativate.ai.studio
+    url: https://creativate.tech
 
   - name: AI Playbook
-    description: Practical frameworks and playbooks for teams adopting AI — from strategy to implementation. Built from real consulting engagements.
+    description: Multilingual AI compliance and regulatory knowledge base covering EU AI Act, GDPR, EDPB guidelines, and responsible AI practices. 30+ articles across 7 categories, interactive readiness assessments, full-text search, and glossary. Content-driven lead-gen tool.
     tech:
-      - AI Strategy
-      - Prompt Engineering
-      - Workshops
+      - Next.js / MDX
+      - i18n (DE/EN/FR)
+      - Full-Text Search
+      - HubSpot Analytics
     url: https://ai-playbook.eu
 
 languages:
@@ -176,26 +237,35 @@ recommendations:
     excerpt: "Leonardo brought genuine curiosity and commitment to the Karla Plattform project. He learned fast and wasn't afraid to ask the right questions."
 
 portfolio:
-  headline: "Builder Looking for a Team"
-  subheadline: "11 years of starting things, breaking things, and figuring it out — now looking to bring that experience to a team where I can contribute and keep learning."
+  headline: "Product · Innovation · AI"
+  subheadline: "CEO & Co-Founder at Creativate AI Studio | AI Decision Intelligence | Product & Innovation | Open to part-time leadership & advisory roles"
   about: >
-    I've spent the last decade building ventures — some worked, some didn't, all taught me
-    something. My side projects (c-node.ai, Creativate AI Studio) keep me sharp, but what
-    I'm really looking for is a team. A place where I can bring what I've learned about
-    product, business development, and getting things off the ground, and combine it with
-    the structure and perspective that comes from working with good people.
-    I don't have all the answers, but I'm reliable, I care about the work, and I'm not
-    afraid to do the unglamorous stuff that actually moves things forward.
+    Founder building AI decision software and collaborating with companies on product
+    and innovation projects. As CEO & Co-Founder of Creativate AI Studio, I'm developing
+    cNode — a platform that helps teams structure complex decisions, compare scenarios,
+    and generate explainable AI-assisted recommendations. Alongside the product, we
+    launched AI Playbook, a multilingual knowledge base covering the EU AI Act, GDPR,
+    and responsible AI adoption.
+
+    Over the past decade I've built and operated multiple ventures across product design,
+    business development, and software. My work usually sits at the intersection of product
+    strategy, AI, and early-stage execution — turning ideas into working systems and
+    prototypes.
+
+    In addition to running Creativate, I collaborate with companies on part-time or project
+    engagements around product strategy, AI product development, MVP architecture, and
+    early-stage venture building. I enjoy working with small teams that move quickly and
+    build meaningful products.
   services:
     - title: "Product & Innovation"
       icon: "\U0001F3AF"
-      description: "I've built products from scratch and learned what works (and what doesn't) through a lot of trial and error. Happy to help with user research, roadmapping, or just rolling up sleeves on whatever needs doing."
-    - title: "AI Strategy & Consulting"
+      description: "From zero-to-one product builds to scaling existing platforms. User research, roadmapping, prototyping, and hands-on execution — across B2B SaaS, deep tech, and digital products."
+    - title: "AI Decision Intelligence"
       icon: "\U0001F916"
-      description: "Working on explainable AI and EU AI Act compliance through Creativate. I can help teams think through how to adopt AI practically — not just the shiny parts, but the messy real-world stuff too."
-    - title: "Business Development & Operations"
+      description: "Building explainable AI systems at Creativate. EU AI Act compliance, responsible AI adoption, and turning complex AI capabilities into practical tools teams actually use."
+    - title: "Business Development & Venture Building"
       icon: "\U0001F4C8"
-      description: "Building partnerships, sorting out processes, connecting dots between teams. I've done this across startups and a couple of corporate settings — I'm not an expert at everything, but I know how to make progress."
+      description: "Partnerships, go-to-market strategy, and operational setup for early-stage ventures. Experience across startups, accelerators, and corporate innovation — connecting dots between teams, investors, and markets."
   linkedin_posts:
     - author: "EU\u2013INC"
       author_image: "eu_inc.jpg"
