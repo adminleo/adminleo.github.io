@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leonardo Bornhaeusser — Builder Looking for a Team</title>
+  <meta name="description" content="11 years of starting things, breaking things, and figuring it out — now looking to bring that experience to a team where I can contribute and keep learning.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg-elevated: #12121a;
+      --bg-card: rgba(255,255,255,0.04);
+      --bg-card-hover: rgba(255,255,255,0.08);
+      --text: #f5f5fa;
+      --text-secondary: #c8c8d8;
+      --text-dim: #8a8a9f;
+      --accent: #7c3aed;
+      --accent-2: #22d3ee;
+      --accent-3: #a78bfa;
+      --gradient: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+      --gradient-subtle: linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(6,182,212,0.15) 100%);
+      --border: rgba(255,255,255,0.08);
+      --border-accent: rgba(124,58,237,0.4);
+      --glow: 0 0 60px rgba(124,58,237,0.2);
+      --max-width: 1080px;
+      --mono: 'JetBrains Mono', monospace;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: var(--accent-2); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: #67e8f9; }
+
+    /* ─── Depth background — layered ambient gradients + noise ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 15% 20%, rgba(124,58,237,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 50% at 85% 70%, rgba(6,182,212,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 50% 50%, rgba(139,92,246,0.04) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+      animation: ambientDrift 16s ease-in-out infinite alternate;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+    @keyframes ambientDrift {
+      0% {
+        background:
+          radial-gradient(ellipse 80% 60% at 15% 20%, rgba(124,58,237,0.08) 0%, transparent 60%),
+          radial-gradient(ellipse 70% 50% at 85% 70%, rgba(6,182,212,0.06) 0%, transparent 60%),
+          radial-gradient(ellipse 50% 40% at 50% 50%, rgba(139,92,246,0.04) 0%, transparent 50%);
+      }
+      100% {
+        background:
+          radial-gradient(ellipse 80% 60% at 25% 35%, rgba(6,182,212,0.07) 0%, transparent 60%),
+          radial-gradient(ellipse 70% 50% at 75% 60%, rgba(124,58,237,0.06) 0%, transparent 60%),
+          radial-gradient(ellipse 50% 40% at 50% 45%, rgba(34,211,238,0.03) 0%, transparent 50%);
+      }
+    }
+
+    /* ─── Navigation ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.8rem 2rem;
+    }
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-name {
+      font-family: var(--mono);
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .nav-name .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--accent-2);
+      border-radius: 50%;
+      margin-right: 6px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    /* ─── Hero ─── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 6rem 2rem 5rem;
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+    .hero-text { flex: 1; }
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-2);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .hero-label::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--accent-2);
+    }
+    .hero-text h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.25rem;
+    }
+    .hero-text h1 .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-text .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 520px;
+    }
+    .hero-cta {
+      display: inline-flex;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      font-family: inherit;
+    }
+    .btn-gradient {
+      background: var(--gradient);
+      color: white;
+      box-shadow: 0 4px 20px rgba(124,58,237,0.3);
+    }
+    .btn-gradient:hover {
+      box-shadow: 0 4px 30px rgba(124,58,237,0.5);
+      transform: translateY(-1px);
+      color: white;
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent-2);
+      color: var(--accent-2);
+    }
+    .hero-image { flex-shrink: 0; position: relative; }
+    /* Outer glow aura */
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      inset: -20px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #7c3aed, #06b6d4, #8b5cf6, #22d3ee, #7c3aed);
+      opacity: 0.3;
+      filter: blur(35px);
+      animation: glowRotate 6s linear infinite;
+    }
+    /* Spinning gradient ring */
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #7c3aed, #06b6d4, #8b5cf6, #22d3ee, #7c3aed);
+      animation: glowRotate 4s linear infinite;
+      z-index: 0;
+      mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+    }
+    @keyframes glowRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .hero-image img {
+      position: relative;
+      z-index: 1;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,0.1);
+      box-shadow: 0 0 50px rgba(124,58,237,0.25), 0 0 100px rgba(6,182,212,0.1);
+    }
+
+    /* ─── Sections ─── */
+    .section {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    .section-divider {
+      border-top: 1px solid var(--border);
+    }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-2);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-label::before {
+      content: '//';
+      color: var(--text-dim);
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      margin-bottom: 3rem;
+      max-width: 500px;
+    }
+
+    /* ─── About ─── */
+    .about-text {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      max-width: 680px;
+    }
+
+    /* ─── Services / What I Do ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .service-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-accent);
+      transform: translateY(-3px);
+      box-shadow: var(--glow);
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gradient-subtle);
+      border: 1px solid rgba(124,58,237,0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.25rem;
+    }
+    .service-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .service-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ─── Experience ─── */
+    .timeline { position: relative; }
+    .timeline-item {
+      display: flex;
+      gap: 1.75rem;
+      padding-bottom: 2.75rem;
+      position: relative;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      flex-shrink: 0;
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 7px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 12px rgba(124,58,237,0.4);
+    }
+    .timeline-item:not(:last-child) .timeline-dot::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: calc(100% + 2.25rem);
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      opacity: 0.3;
+    }
+    .timeline-content h3 {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .timeline-content .company {
+      font-size: 0.9rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 600;
+    }
+    .timeline-content .period {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      margin-top: 0.2rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+    .timeline-content p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .highlight-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.7rem;
+    }
+    .highlight-tag {
+      background: var(--gradient-subtle);
+      border: 1px solid rgba(124,58,237,0.18);
+      color: var(--accent-3);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .highlight-tag:hover {
+      border-color: rgba(124,58,237,0.4);
+      box-shadow: 0 0 10px rgba(124,58,237,0.15);
+    }
+
+    /* ─── Skills ─── */
+    .skills-section { margin-top: 3rem; }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+    .skill-pill:hover {
+      border-color: var(--accent-2);
+      color: var(--accent-2);
+    }
+    .skill-pill.tech {
+      border-color: rgba(124,58,237,0.2);
+      color: var(--accent-3);
+    }
+
+    /* ─── Projects ─── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .project-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-accent);
+      transform: translateY(-3px);
+      box-shadow: var(--glow);
+    }
+    .project-card:hover::before { opacity: 1; }
+    .project-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .project-card h3 a {
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    .project-card h3 a:hover { color: var(--accent-2); }
+    .project-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 1rem;
+    }
+    .project-tech span {
+      background: var(--gradient-subtle);
+      border: 1px solid rgba(124,58,237,0.18);
+      color: var(--accent-3);
+      padding: 0.15rem 0.55rem;
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 500;
+    }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-2);
+    }
+    .project-link:hover { color: #67e8f9; }
+
+    /* ─── Recommendations ─── */
+    .reco-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+    .reco-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: all 0.2s;
+    }
+    .reco-card:hover {
+      border-color: rgba(6,182,212,0.2);
+      background: var(--bg-card-hover);
+    }
+    .reco-card blockquote {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 1rem;
+      border-left: 2px solid var(--accent);
+      padding-left: 1rem;
+    }
+    .reco-author { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+    .reco-role { font-size: 0.75rem; color: var(--text-secondary); font-family: var(--mono); }
+
+    /* ─── Featured LinkedIn Posts ─── */
+    .linkedin-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+    .linkedin-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .linkedin-card:hover {
+      border-color: rgba(10,102,194,0.4);
+      background: var(--bg-card-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 0 40px rgba(10,102,194,0.1);
+    }
+    .linkedin-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .linkedin-card-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+    .linkedin-card-avatar-initials {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--gradient-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent-3);
+      flex-shrink: 0;
+    }
+    .linkedin-card-meta {
+      flex: 1;
+    }
+    .linkedin-card-author {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .linkedin-card-date {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--text-dim);
+    }
+    .linkedin-card-icon {
+      color: #0a66c2;
+      font-size: 1.1rem;
+      opacity: 0.7;
+    }
+    .linkedin-card-body {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .linkedin-card-stats {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+    .linkedin-stat {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .linkedin-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #0a66c2;
+      transition: color 0.2s;
+    }
+    .linkedin-card-link:hover { color: #0d7fdb; }
+
+    /* ─── Contact ─── */
+    .contact-inner {
+      text-align: center;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+    .contact-inner h2 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.03em;
+    }
+    .contact-inner h2 .gradient-text {
+      background: linear-gradient(90deg, #7c3aed, #06b6d4, #8b5cf6, #22d3ee, #7c3aed);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .contact-inner p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+    .contact-link:hover {
+      border-color: var(--accent-2);
+      color: var(--accent-2);
+      background: rgba(6,182,212,0.05);
+    }
+
+    /* ─── Footer ─── */
+    .footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-family: var(--mono);
+    }
+
+    /* ─── Timeline dot pulse ─── */
+    .timeline-dot {
+      animation: dotPulse 3s ease-in-out infinite;
+    }
+    @keyframes dotPulse {
+      0%, 100% { box-shadow: 0 0 12px rgba(124,58,237,0.4); }
+      50% { box-shadow: 0 0 20px rgba(124,58,237,0.7), 0 0 40px rgba(124,58,237,0.2); }
+    }
+
+    /* ─── Section fade-in on scroll ─── */
+    .section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Hero always visible */
+    .hero {
+      animation: fadeInUp 1s ease-out both;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── Service card shimmer on hover ─── */
+    .service-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(124,58,237,0.05), transparent, rgba(6,182,212,0.05), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+      animation: cardShimmer 6s linear infinite;
+    }
+    .service-card:hover::after { opacity: 1; }
+    @keyframes cardShimmer {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* ─── Skill pill glow on hover ─── */
+    .skill-pill:hover {
+      box-shadow: 0 0 15px rgba(6,182,212,0.2);
+    }
+    .skill-pill.tech:hover {
+      box-shadow: 0 0 15px rgba(124,58,237,0.3);
+    }
+
+    /* ─── Nav dot energy pulse ─── */
+    .nav-name .dot {
+      box-shadow: 0 0 8px rgba(34,211,238,0.5);
+    }
+
+    /* ─── Contact gradient text shimmer ─── */
+    .contact-inner h2 .gradient-text {
+      background-size: 200% auto;
+      animation: gradientShift 4s linear infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* ─── Floating PDF Download Bubble ─── */
+    .pdf-fab {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 100;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: var(--gradient);
+      color: white;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(124,58,237,0.4), 0 0 40px rgba(124,58,237,0.15);
+      transition: all 0.3s ease;
+      animation: fabPulse 3s ease-in-out infinite;
+    }
+    .pdf-fab:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(124,58,237,0.6), 0 0 60px rgba(6,182,212,0.2);
+    }
+    .pdf-fab::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #7c3aed, #06b6d4, #8b5cf6, #22d3ee, #7c3aed);
+      z-index: -1;
+      animation: glowRotate 4s linear infinite;
+      opacity: 0.4;
+      filter: blur(8px);
+    }
+    @keyframes fabPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(124,58,237,0.4), 0 0 40px rgba(124,58,237,0.15); }
+      50% { box-shadow: 0 4px 25px rgba(124,58,237,0.5), 0 0 50px rgba(6,182,212,0.2); }
+    }
+    .pdf-fab .tooltip {
+      position: absolute;
+      right: 70px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--bg-elevated);
+      color: var(--text);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+      font-family: var(--mono);
+    }
+    .pdf-fab:hover .tooltip { opacity: 1; }
+
+    /* ─── Print / PDF Light Theme ─── */
+    @media print {
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      body {
+        background: #fff !important;
+        color: #1a1a1a !important;
+        font-size: 11pt !important;
+        line-height: 1.5 !important;
+      }
+      body::before, body::after { display: none !important; }
+      .nav, .pdf-fab { display: none !important; }
+      .section-divider { border-color: #e5e5e5 !important; }
+      a { color: #4f46e5 !important; }
+      .hero {
+        padding: 1.5rem 0 1rem !important;
+        gap: 2rem !important;
+        animation: none !important;
+      }
+      .hero-label {
+        color: #6366f1 !important;
+      }
+      .hero-label::before {
+        background: #6366f1 !important;
+      }
+      .hero-text h1 {
+        font-size: 2.2rem !important;
+        color: #1a1a1a !important;
+      }
+      .hero-text h1 .gradient-text {
+        background: none !important;
+        -webkit-text-fill-color: #4f46e5 !important;
+        color: #4f46e5 !important;
+      }
+      .hero-text .subtitle {
+        color: #555 !important;
+      }
+      .hero-image::before, .hero-image::after { display: none !important; }
+      .hero-image img {
+        width: 140px !important;
+        height: 140px !important;
+        border: 2px solid #ddd !important;
+        box-shadow: none !important;
+      }
+      .section {
+        padding: 1.5rem 0 !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .section-label {
+        color: #6366f1 !important;
+      }
+      .section-label::before { color: #999 !important; }
+      .section-title {
+        font-size: 1.3rem !important;
+        color: #1a1a1a !important;
+      }
+      .section-subtitle {
+        color: #666 !important;
+      }
+      .about-text {
+        color: #444 !important;
+        font-size: 0.95rem !important;
+      }
+      .service-card {
+        background: #f8f8fa !important;
+        border-color: #e5e5e5 !important;
+        break-inside: avoid;
+        box-shadow: none !important;
+      }
+      .service-card::before, .service-card::after { display: none !important; }
+      .service-card h3 { color: #1a1a1a !important; }
+      .service-card p { color: #555 !important; }
+      .service-icon {
+        background: #eee !important;
+        border-color: #ddd !important;
+      }
+      .skill-pill {
+        background: #f0f0f5 !important;
+        border-color: #ddd !important;
+        color: #444 !important;
+      }
+      .skill-pill.tech {
+        border-color: #c4b5fd !important;
+        color: #6d28d9 !important;
+      }
+      .timeline-dot {
+        background: #6366f1 !important;
+        box-shadow: none !important;
+        animation: none !important;
+      }
+      .timeline-dot::after {
+        background: #ddd !important;
+        opacity: 1 !important;
+      }
+      .timeline-content h3 { color: #1a1a1a !important; }
+      .timeline-content .company {
+        background: none !important;
+        -webkit-text-fill-color: #4f46e5 !important;
+        color: #4f46e5 !important;
+      }
+      .timeline-content .period { color: #888 !important; }
+      .timeline-content p { color: #444 !important; }
+      .highlight-tag {
+        background: #f0edf8 !important;
+        border-color: #d4c8f0 !important;
+        color: #6d28d9 !important;
+      }
+      .project-card {
+        background: #f8f8fa !important;
+        border-color: #e5e5e5 !important;
+        break-inside: avoid;
+        box-shadow: none !important;
+      }
+      .project-card::before { display: none !important; }
+      .project-card h3 a { color: #1a1a1a !important; }
+      .project-card p { color: #555 !important; }
+      .project-tech span {
+        background: #f0edf8 !important;
+        border-color: #d4c8f0 !important;
+        color: #6d28d9 !important;
+      }
+      .project-link { color: #4f46e5 !important; }
+      .reco-card, .linkedin-card {
+        background: #f8f8fa !important;
+        border-color: #e5e5e5 !important;
+        break-inside: avoid;
+      }
+      .linkedin-card-body { color: #444 !important; }
+      .linkedin-card-author { color: #1a1a1a !important; }
+      .linkedin-card-date, .linkedin-stat { color: #888 !important; }
+      .linkedin-card-icon { color: #0a66c2 !important; }
+      .linkedin-card-link { color: #0a66c2 !important; }
+      .reco-card blockquote {
+        color: #444 !important;
+        border-left-color: #6366f1 !important;
+      }
+      .reco-author { color: #1a1a1a !important; }
+      .reco-role { color: #666 !important; }
+      .contact-inner h2 .gradient-text {
+        background: none !important;
+        -webkit-text-fill-color: #4f46e5 !important;
+        color: #4f46e5 !important;
+        animation: none !important;
+      }
+      .contact-inner p { color: #555 !important; }
+      .contact-link {
+        background: #f0f0f5 !important;
+        border-color: #ddd !important;
+        color: #444 !important;
+      }
+      .footer {
+        color: #999 !important;
+        border-color: #e5e5e5 !important;
+      }
+      .btn-gradient {
+        background: #4f46e5 !important;
+        box-shadow: none !important;
+      }
+      .btn-outline {
+        border-color: #ccc !important;
+        color: #444 !important;
+      }
+      .hero-cta { display: none !important; }
+      @page {
+        margin: 1.5cm;
+        size: A4;
+      }
+    }
+
+    /* ─── Responsive ─── */
+    /* ─── Tablet ─── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+      .hero { gap: 3rem; padding: 5rem 2rem 4rem; }
+      .hero-image img { width: 220px; height: 220px; }
+    }
+
+    /* ─── Mobile ─── */
+    @media (max-width: 768px) {
+      /* Nav — horizontal scroll, no wrapping */
+      .nav { padding: 0.75rem 1rem; }
+      .nav-inner { gap: 0.75rem; }
+      .nav-name { font-size: 0.8rem; white-space: nowrap; }
+      .nav-links {
+        gap: 0.9rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        flex-wrap: nowrap;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-links a { font-size: 0.7rem; white-space: nowrap; }
+
+      /* Hero — stacked, centered */
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 2.5rem 1.25rem 2rem;
+        gap: 2rem;
+      }
+      .hero-label { justify-content: center; font-size: 0.7rem; }
+      .hero-text h1 { font-size: 2rem; }
+      .hero-text .subtitle { max-width: 100%; font-size: 0.95rem; }
+      .hero-cta { justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
+      .hero-cta .btn { padding: 0.65rem 1.25rem; font-size: 0.85rem; width: 100%; justify-content: center; }
+      .hero-image img { width: 160px; height: 160px; }
+      .hero-image::before { inset: -15px; }
+
+      /* Sections */
+      .section { padding: 2.5rem 1.25rem; }
+      .section-title { font-size: 1.4rem; }
+      .section-subtitle { font-size: 0.9rem; margin-bottom: 2rem; }
+      .section-label { font-size: 0.65rem; }
+
+      /* About */
+      .about-text { font-size: 0.95rem; }
+
+      /* Skills — smaller pills, tighter */
+      .skills-section { margin-top: 2rem; }
+      .skills-grid { gap: 0.4rem; }
+      .skill-pill { padding: 0.35rem 0.75rem; font-size: 0.75rem; }
+
+      /* Services — single column */
+      .services-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .service-card { padding: 1.5rem 1.25rem; }
+      .service-icon { width: 42px; height: 42px; font-size: 1.2rem; margin-bottom: 1rem; }
+
+      /* Experience timeline */
+      .timeline-item { gap: 1.25rem; padding-bottom: 2rem; }
+      .timeline-content h3 { font-size: 0.95rem; }
+      .timeline-content .company { font-size: 0.85rem; }
+      .timeline-content .period { font-size: 0.68rem; }
+      .timeline-content p { font-size: 0.82rem; }
+      .highlight-tags { gap: 0.3rem; }
+      .highlight-tag { font-size: 0.62rem; padding: 0.15rem 0.5rem; }
+
+      /* Projects — single column */
+      .projects-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .project-card { padding: 1.5rem 1.25rem; }
+      .project-card h3 { font-size: 1rem; }
+      .project-card p { font-size: 0.82rem; }
+      .project-tech span { font-size: 0.6rem; }
+
+      /* Recommendations — single column */
+      .reco-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .reco-card { padding: 1.5rem; }
+      .reco-card blockquote { font-size: 0.85rem; }
+
+      /* LinkedIn posts — single column */
+      .linkedin-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .linkedin-card { padding: 1.5rem; }
+      .linkedin-card-body { font-size: 0.82rem; -webkit-line-clamp: 4; }
+
+      /* Contact */
+      .contact-inner h2 { font-size: 1.6rem; }
+      .contact-inner p { font-size: 0.9rem; }
+      .contact-links { flex-direction: column; gap: 0.5rem; }
+      .contact-link { justify-content: center; padding: 0.7rem 1rem; }
+
+      /* Footer */
+      .footer { font-size: 0.7rem; padding: 1.5rem 1rem; }
+
+      /* PDF fab — smaller, avoid thumb zone conflict */
+      .pdf-fab { width: 48px; height: 48px; bottom: 1.5rem; right: 1.25rem; }
+      .pdf-fab .tooltip { display: none; }
+    }
+
+    /* ─── Small phones (< 400px) ─── */
+    @media (max-width: 400px) {
+      .hero { padding: 2rem 1rem 1.5rem; }
+      .hero-text h1 { font-size: 1.7rem; }
+      .hero-text .subtitle { font-size: 0.88rem; }
+      .hero-image img { width: 130px; height: 130px; }
+      .section { padding: 2rem 1rem; }
+      .section-title { font-size: 1.25rem; }
+      .service-card, .project-card, .reco-card, .linkedin-card { padding: 1.25rem 1rem; }
+      .nav-links a { font-size: 0.65rem; letter-spacing: 0.05em; }
+    }
+
+    /* ─── Safe area for notched phones ─── */
+    @supports (padding: env(safe-area-inset-bottom)) {
+      .footer { padding-bottom: calc(2rem + env(safe-area-inset-bottom)); }
+      .pdf-fab { bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
+    }
+
+    /* ─── Touch: larger tap targets ─── */
+    @media (hover: none) and (pointer: coarse) {
+      .nav-links a { min-height: 44px; display: flex; align-items: center; }
+      .btn { min-height: 48px; }
+      .contact-link { min-height: 48px; }
+      .skill-pill { min-height: 36px; display: inline-flex; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <span class="nav-name"><span class="dot"></span>leonardo_bornhaeusser</span>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Stack</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#posts">Posts</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-label">Builder Looking for a Team</div>
+      <h1>Leonardo<br><span class="gradient-text">Bornhaeusser</span></h1>
+      <p class="subtitle">11 years of starting things, breaking things, and figuring it out — now looking to bring that experience to a team where I can contribute and keep learning.</p>
+      <div class="hero-cta">
+        <a href="mailto:leonardo@creativate.tech" class="btn btn-gradient">Let&#39;s talk</a>
+        <a href="https://www.linkedin.com/in/leonardo-bornh%C3%A4u%C3%9Fer/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="assets/img/profile.jpg" alt="Leonardo Bornhaeusser">
+    </div>
+  </section>
+
+  <!-- About -->
+  <div class="section-divider"></div>
+  <section class="section" id="about">
+    <div class="section-label">About</div>
+    <h2 class="section-title">Background</h2>
+    <p class="about-text">I&#39;ve spent the last decade building ventures — some worked, some didn&#39;t, all taught me something. My side projects (c-node.ai, Creativate AI Studio) keep me sharp, but what I&#39;m really looking for is a team. A place where I can bring what I&#39;ve learned about product, business development, and getting things off the ground, and combine it with the structure and perspective that comes from working with good people. I don&#39;t have all the answers, but I&#39;m reliable, I care about the work, and I&#39;m not afraid to do the unglamorous stuff that actually moves things forward.
+</p>
+
+    <!-- Skills Pills -->
+    <div class="skills-section">
+      <div class="skills-grid">
+        
+        <span class="skill-pill tech">Python / FastAPI</span>
+        
+        <span class="skill-pill tech">TypeScript / Next.js</span>
+        
+        <span class="skill-pill tech">AI/ML Systems</span>
+        
+        <span class="skill-pill tech">Explainable AI</span>
+        
+        <span class="skill-pill tech">Data Engineering</span>
+        
+        <span class="skill-pill tech">PostgreSQL / Redis</span>
+        
+        <span class="skill-pill tech">Docker / DevOps</span>
+        
+        <span class="skill-pill tech">EU AI Act Compliance</span>
+        
+        
+        <span class="skill-pill">Business Development</span>
+        
+        <span class="skill-pill">Product Strategy</span>
+        
+        <span class="skill-pill">Startup Leadership</span>
+        
+        <span class="skill-pill">Corporate Governance</span>
+        
+        <span class="skill-pill">Investor Relations</span>
+        
+        <span class="skill-pill">UX Research</span>
+        
+        <span class="skill-pill">Tokenization / Web3</span>
+        
+        <span class="skill-pill">Public Speaking</span>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- What I Do -->
+  <div class="section-divider"></div>
+  <section class="section" id="services">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">What I Do</h2>
+    <p class="section-subtitle">How I help companies build great products and scale effectively.</p>
+    <div class="services-grid">
+      
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3>Product &amp; Innovation</h3>
+        <p>I&#39;ve built products from scratch and learned what works (and what doesn&#39;t) through a lot of trial and error. Happy to help with user research, roadmapping, or just rolling up sleeves on whatever needs doing.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">🤖</div>
+        <h3>AI Strategy &amp; Consulting</h3>
+        <p>Working on explainable AI and EU AI Act compliance through Creativate. I can help teams think through how to adopt AI practically — not just the shiny parts, but the messy real-world stuff too.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">📈</div>
+        <h3>Business Development &amp; Operations</h3>
+        <p>Building partnerships, sorting out processes, connecting dots between teams. I&#39;ve done this across startups and a couple of corporate settings — I&#39;m not an expert at everything, but I know how to make progress.</p>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <div class="section-divider"></div>
+  <section class="section" id="experience">
+    <div class="section-label">Career</div>
+    <h2 class="section-title">Experience</h2>
+    <p class="section-subtitle">Where I've built, led, and learned.</p>
+    <div class="timeline">
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Co-Founder &amp; Product Lead</h3>
+          <div class="company">Creativate AIStudio</div>
+          <div class="period">Apr 2024 - Present // Berlin, Germany</div>
+          <p>Co-founded a small deep-tech venture building c-node.ai, an explainable AI
+forecasting tool for SMEs. I handle product direction and technical prototyping
+alongside two co-founders. We were accepted into the Futury accelerator
+and secured early angel investment through Tokenize.it.</p>
+          
+          <div class="highlight-tags">
+            
+            <span class="highlight-tag">Built and iterated on the cNode prototype (Python, FastAPI, Next.js)</span>
+            
+            <span class="highlight-tag">Designed EU AI Act compliance approach</span>
+            
+            <span class="highlight-tag">Part of Futury Female Founders accelerator cohort</span>
+            
+            <span class="highlight-tag">Secured early angel funding via Tokenize.it</span>
+            
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Founder</h3>
+          <div class="company">Born2Hold Ventures GmbH</div>
+          <div class="period">Dec 2022 - Present // Berlin, Germany</div>
+          <p>My personal venture holding. I advise a handful of early-stage founders
+on governance, structuring, and the things nobody teaches you about
+actually running a company.</p>
+          
+          <div class="highlight-tags">
+            
+            <span class="highlight-tag">Small portfolio of early-stage advisory engagements</span>
+            
+            <span class="highlight-tag">Corporate governance and restructuring support</span>
+            
+            <span class="highlight-tag">Hands-on founder mentoring</span>
+            
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Co-Founder &amp; Operations</h3>
+          <div class="company">Camsol.io</div>
+          <div class="period">Nov 2022 - Apr 2025 // Berlin, Germany</div>
+          <p>Co-founded a B2B web development agency. I ran day-to-day operations,
+managed client relationships, and helped shape the product and UX side
+of our projects. We grew the team and client base before I moved on.</p>
+          
+          <div class="highlight-tags">
+            
+            <span class="highlight-tag">Ran operations and client management for B2B agency</span>
+            
+            <span class="highlight-tag">Contributed to product decisions and UX strategy</span>
+            
+            <span class="highlight-tag">Grew the team from 2 to a small cross-functional group</span>
+            
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Business Development Trainee</h3>
+          <div class="company">Sparkasse Vorpommern</div>
+          <div class="period">Apr 2021 - Oct 2022 // Mecklenburg-West Pomerania, Germany</div>
+          <p>My first &#34;real job&#34; in a structured corporate environment. Learned a lot
+about how larger organisations work, contributed to a digital platform launch
+(Karla Plattform GmbH), and got hands-on with UX research and B2B strategy.</p>
+          
+          <div class="highlight-tags">
+            
+            <span class="highlight-tag">Helped launch Karla Plattform GmbH</span>
+            
+            <span class="highlight-tag">UX research and user testing</span>
+            
+            <span class="highlight-tag">Learned structured business development in banking</span>
+            
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Product Designer</h3>
+          <div class="company">Karla Plattform GmbH</div>
+          <div class="period">Apr 2021 - Oct 2022 // Greifswald, Germany</div>
+          <p>Designed the product identity and contributed to software development for
+a digital platform within the Sparkasse ecosystem. My first time working
+on product design in a larger team context.</p>
+          
+          <div class="highlight-tags">
+            
+            <span class="highlight-tag">Designed corporate identity from scratch</span>
+            
+            <span class="highlight-tag">Contributed to frontend development</span>
+            
+            <span class="highlight-tag">Ran early product-market fit research</span>
+            
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Projects -->
+  
+  <div class="section-divider"></div>
+  <section class="section" id="projects">
+    <div class="section-label">Projects</div>
+    <h2 class="section-title">What I'm Working On</h2>
+    <p class="section-subtitle">Side ventures and ongoing projects.</p>
+    <div class="projects-grid">
+      
+      <div class="project-card">
+        <h3><a href="https://c-node.ai" target="_blank" rel="noopener">c-node.ai</a></h3>
+        <p>Explainable AI forecasting platform — modular decision intelligence for SMEs. Our core product at Creativate, turning data into scenarios leaders can actually defend.</p>
+        
+        <div class="project-tech">
+          
+          <span>Python</span>
+          
+          <span>FastAPI</span>
+          
+          <span>Next.js</span>
+          
+          <span>PostgreSQL</span>
+          
+          <span>TimescaleDB</span>
+          
+        </div>
+        
+        
+        <a href="https://c-node.ai" target="_blank" rel="noopener" class="project-link">Visit &rarr;</a>
+        
+      </div>
+      
+      <div class="project-card">
+        <h3><a href="https://creativate.ai.studio" target="_blank" rel="noopener">Creativate AI Studio</a></h3>
+        <p>Deep-tech consulting and venture studio. We help companies integrate AI responsibly — EU AI Act ready, business-first. My entrepreneurial home base.</p>
+        
+        <div class="project-tech">
+          
+          <span>Python</span>
+          
+          <span>TypeScript</span>
+          
+          <span>Docker</span>
+          
+          <span>Anthropic API</span>
+          
+        </div>
+        
+        
+        <a href="https://creativate.ai.studio" target="_blank" rel="noopener" class="project-link">Visit &rarr;</a>
+        
+      </div>
+      
+      <div class="project-card">
+        <h3><a href="https://ai-playbook.eu" target="_blank" rel="noopener">AI Playbook</a></h3>
+        <p>Practical frameworks and playbooks for teams adopting AI — from strategy to implementation. Built from real consulting engagements.</p>
+        
+        <div class="project-tech">
+          
+          <span>AI Strategy</span>
+          
+          <span>Prompt Engineering</span>
+          
+          <span>Workshops</span>
+          
+        </div>
+        
+        
+        <a href="https://ai-playbook.eu" target="_blank" rel="noopener" class="project-link">Visit &rarr;</a>
+        
+      </div>
+      
+    </div>
+  </section>
+  
+
+  <!-- Recommendations -->
+  
+  <div class="section-divider"></div>
+  <section class="section">
+    <div class="section-label">Testimonials</div>
+    <h2 class="section-title">What Others Say</h2>
+    <p class="section-subtitle">Recommendations from colleagues and mentors.</p>
+    <div class="reco-grid">
+      
+      <div class="reco-card">
+        <blockquote>"Leonardo is one of those people who just gets things done — he listens, adapts quickly, and brings real energy to the team."</blockquote>
+        <div class="reco-author">Lisa Bennewitz</div>
+        <div class="reco-role">Board Member, Entrepreneur, Investor</div>
+      </div>
+      
+      <div class="reco-card">
+        <blockquote>"Leonardo brought genuine curiosity and commitment to the Karla Plattform project. He learned fast and wasn&#39;t afraid to ask the right questions."</blockquote>
+        <div class="reco-author">Thomas Metzke</div>
+        <div class="reco-role">Vorstand, Sparkasse Vorpommern</div>
+      </div>
+      
+    </div>
+  </section>
+  
+
+  <!-- Featured LinkedIn Posts -->
+  
+  <div class="section-divider"></div>
+  <section class="section" id="posts">
+    <div class="section-label">Featured</div>
+    <h2 class="section-title">LinkedIn Posts</h2>
+    <p class="section-subtitle">Thoughts on product, technology, and building ventures.</p>
+    <div class="linkedin-grid">
+      
+      <a href="https://www.linkedin.com/feed/update/urn:li:activity:7419617084063502336/" target="_blank" rel="noopener" class="linkedin-card" style="text-decoration:none;">
+        <div class="linkedin-card-header">
+          
+          <img src="assets/img/authors/eu_inc.jpg" alt="EU–INC" class="linkedin-card-avatar">
+          
+          <div class="linkedin-card-meta">
+            <div class="linkedin-card-author">EU–INC</div>
+            <div class="linkedin-card-date">Jan 2026</div>
+          </div>
+          <span class="linkedin-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </span>
+        </div>
+        <div class="linkedin-card-body">President von der Leyen just unveiled EU-INC at Davos — a unified legal framework for European entrepreneurs. Online company registration in 48 hours, streamlined cross-border operations. A single legal entity for all European founders. This is what building for Europe looks like.</div>
+        
+        <div class="linkedin-card-stats">
+          <span class="linkedin-stat">&#128077; 12.6k</span>
+          <span class="linkedin-stat">&#128172; 596</span>
+        </div>
+        
+        <span class="linkedin-card-link">Read on LinkedIn &rarr;</span>
+      </a>
+      
+      <a href="https://www.linkedin.com/posts/leonardo-bornh%C3%A4u%C3%9Fer_germany-spends-billions-on-ideas-that-never-activity-7395019693574619136-vCPk" target="_blank" rel="noopener" class="linkedin-card" style="text-decoration:none;">
+        <div class="linkedin-card-header">
+          
+          <img src="assets/img/profile.jpg" alt="Leonardo Bornhaeusser" class="linkedin-card-avatar">
+          
+          <div class="linkedin-card-meta">
+            <div class="linkedin-card-author">Leonardo Bornhaeusser</div>
+            <div class="linkedin-card-date">Nov 2025</div>
+          </div>
+          <span class="linkedin-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </span>
+        </div>
+        <div class="linkedin-card-body">Germany spends ~129 billion euros annually on R&amp;D — yet early-stage entrepreneurial activity remains roughly half the level of the US. Only 27 of 702 funded German startups in 2024 had all-female founding teams. We built Creativate AI Studio as a female-led, deep-tech initiative. Diverse teams aren&#39;t optional — they&#39;re how you maximize innovation potential.</div>
+        
+        <div class="linkedin-card-stats">
+          <span class="linkedin-stat">&#128077; 62</span>
+          <span class="linkedin-stat">&#128172; 8</span>
+        </div>
+        
+        <span class="linkedin-card-link">Read on LinkedIn &rarr;</span>
+      </a>
+      
+      <a href="https://www.linkedin.com/posts/janseidemann_das-erste-female-founder-programm-von-activity-7394287918678241280-cYc5" target="_blank" rel="noopener" class="linkedin-card" style="text-decoration:none;">
+        <div class="linkedin-card-header">
+          
+          <span class="linkedin-card-avatar-initials">JS</span>
+          
+          <div class="linkedin-card-meta">
+            <div class="linkedin-card-author">Jan Seidemann</div>
+            <div class="linkedin-card-date">Nov 2025</div>
+          </div>
+          <span class="linkedin-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </span>
+        </div>
+        <div class="linkedin-card-body">Futury just launched their first female founder program — &#39;Scale, Grow &amp; Connect for Women-Led Ventures&#39; with 13 startups including Creativate AIStudio. Leadership development, corporate partnerships, and strategic networking in the Rhine-Main region. Super valuable knowledge-sharing and a safe space for open exchange.</div>
+        
+        <div class="linkedin-card-stats">
+          <span class="linkedin-stat">&#128077; 119</span>
+          <span class="linkedin-stat">&#128172; 16</span>
+        </div>
+        
+        <span class="linkedin-card-link">Read on LinkedIn &rarr;</span>
+      </a>
+      
+      <a href="https://www.linkedin.com/posts/landkreis-mittelsachsen_mut-kapital-wirkung-frauen-gestalten-ugcPost-7389619833786494976-hsDP" target="_blank" rel="noopener" class="linkedin-card" style="text-decoration:none;">
+        <div class="linkedin-card-header">
+          
+          <img src="assets/img/authors/landkreis_mittelsachsen.jpg" alt="Landkreis Mittelsachsen" class="linkedin-card-avatar">
+          
+          <div class="linkedin-card-meta">
+            <div class="linkedin-card-author">Landkreis Mittelsachsen</div>
+            <div class="linkedin-card-date">Oct 2025</div>
+          </div>
+          <span class="linkedin-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </span>
+        </div>
+        <div class="linkedin-card-body">Speaking at the 9th Wirtschaftsfrauen networking event in Mittelsachsen on &#39;Investing Reimagined: Business Angels, Women Power, and Tokenization.&#39; How women can translate capital, knowledge, and values into real impact — alongside Christoph Jentzsch from Tokenize.it on democratizing investments.</div>
+        
+        <div class="linkedin-card-stats">
+          <span class="linkedin-stat">&#128077; 74</span>
+          <span class="linkedin-stat">&#128172; 6</span>
+        </div>
+        
+        <span class="linkedin-card-link">Read on LinkedIn &rarr;</span>
+      </a>
+      
+      <a href="https://www.linkedin.com/posts/leonardo-bornh%C3%A4u%C3%9Fer_bootstrapping-deeptech-xletix-activity-7348995660454490114-dvav" target="_blank" rel="noopener" class="linkedin-card" style="text-decoration:none;">
+        <div class="linkedin-card-header">
+          
+          <img src="assets/img/profile.jpg" alt="Leonardo Bornhaeusser" class="linkedin-card-avatar">
+          
+          <div class="linkedin-card-meta">
+            <div class="linkedin-card-author">Leonardo Bornhaeusser</div>
+            <div class="linkedin-card-date">Jul 2025</div>
+          </div>
+          <span class="linkedin-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </span>
+        </div>
+        <div class="linkedin-card-body">18km through mud, walls, and ice water — XLETIX was brutal. But building a deep-tech startup is the same race. We solved a critical ML architecture challenge in cNode, completely rebuilt our proof-of-concept to show substance over marketing, and relocated R&amp;D to Linz. We don&#39;t run for headlines — we run for a vision.</div>
+        
+        <div class="linkedin-card-stats">
+          <span class="linkedin-stat">&#128077; 43</span>
+          <span class="linkedin-stat">&#128172; 7</span>
+        </div>
+        
+        <span class="linkedin-card-link">Read on LinkedIn &rarr;</span>
+      </a>
+      
+      <a href="https://www.linkedin.com/posts/activity-7262738115109302273-4SAF" target="_blank" rel="noopener" class="linkedin-card" style="text-decoration:none;">
+        <div class="linkedin-card-header">
+          
+          <span class="linkedin-card-avatar-initials">DA</span>
+          
+          <div class="linkedin-card-meta">
+            <div class="linkedin-card-author">Dennis Albert</div>
+            <div class="linkedin-card-date">Nov 2024</div>
+          </div>
+          <span class="linkedin-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </span>
+        </div>
+        <div class="linkedin-card-body">From our recent activity — building at the intersection of explainable AI, tokenized fundraising, and European deep-tech. Follow along for updates on cNode, Creativate AI Studio, and the journey of turning research into real-world decision intelligence.</div>
+        
+        <span class="linkedin-card-link">Read on LinkedIn &rarr;</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
+  <!-- Contact -->
+  <div class="section-divider"></div>
+  <section class="section" id="contact">
+    <div class="contact-inner">
+      <h2><span class="gradient-text">Let&#39;s talk</span></h2>
+      <p>Open to conversations about product, technology, and building things that matter.</p>
+      <div class="contact-links">
+        <a href="mailto:leonardo@creativate.tech" class="contact-link">&#9993; Email</a>
+        <a href="https://www.linkedin.com/in/leonardo-bornh%C3%A4u%C3%9Fer/" target="_blank" rel="noopener" class="contact-link">&#128279; LinkedIn</a>
+        <a href="https://github.com/adminleo" target="_blank" rel="noopener" class="contact-link">&#128187; GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; 2026 Leonardo Bornhaeusser // built in berlin
+  </footer>
+
+  <!-- Floating PDF Download Button -->
+  <button class="pdf-fab" onclick="window.print()" aria-label="Download as PDF">
+    <span class="tooltip">Save as PDF</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+  </button>
+
+  <script>
+    // Scroll-triggered section animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.section').forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>

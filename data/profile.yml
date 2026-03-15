@@ -1,0 +1,290 @@
+personal:
+  name: Leonardo Bornhaeusser
+  location: Berlin Metropolitan Area
+  email: leonardo@creativate.tech
+  linkedin: https://www.linkedin.com/in/leonardo-bornh%C3%A4u%C3%9Fer/
+  github: https://github.com/adminleo
+  headline: Product · Innovation · Business Development
+  tagline: Serial founder with 11 years of hands-on experience — looking for a team where I can contribute, learn, and grow together.
+
+about: |
+  I started my first venture in high school and have been building ever since — sometimes
+  succeeding, sometimes failing, always learning. Over the past 11 years I've co-founded
+  companies, designed products, and worn every hat from sales to ops to writing code.
+
+  My current projects (Creativate AI Studio, c-node.ai) run as focused side ventures,
+  which means I have the time and energy to commit to a part-time or project-based role
+  where I can be genuinely useful. I work best in small, collaborative teams where people
+  care about what they're building.
+
+  I don't have a university degree — I chose the entrepreneurial path instead. What I do
+  have is practical experience across product, business development, and innovation, plus
+  the humility that comes from learning most things the hard way. I'm not looking for a
+  title. I'm looking for good people and meaningful work.
+
+skills:
+  technical:
+    - Python / FastAPI
+    - TypeScript / Next.js
+    - AI/ML Systems
+    - Explainable AI
+    - Data Engineering
+    - PostgreSQL / Redis
+    - Docker / DevOps
+    - EU AI Act Compliance
+  business:
+    - Business Development
+    - Product Strategy
+    - Startup Leadership
+    - Corporate Governance
+    - Investor Relations
+    - UX Research
+    - Tokenization / Web3
+    - Public Speaking
+
+experience:
+  - title: Co-Founder & Product Lead
+    company: Creativate AIStudio
+    url: https://creativate.tech
+    period: Apr 2024 - Present
+    location: Berlin, Germany
+    type: Side venture
+    description: |
+      Co-founded a small deep-tech venture building c-node.ai, an explainable AI
+      forecasting tool for SMEs. I handle product direction and technical prototyping
+      alongside two co-founders. We were accepted into the Futury accelerator
+      and secured early angel investment through Tokenize.it.
+    highlights:
+      - Built and iterated on the cNode prototype (Python, FastAPI, Next.js)
+      - Designed EU AI Act compliance approach
+      - Part of Futury Female Founders accelerator cohort
+      - Secured early angel funding via Tokenize.it
+
+  - title: Founder
+    company: Born2Hold Ventures GmbH
+    period: Dec 2022 - Present
+    location: Berlin, Germany
+    type: Self-employed
+    description: |
+      My personal venture holding. I advise a handful of early-stage founders
+      on governance, structuring, and the things nobody teaches you about
+      actually running a company.
+    highlights:
+      - Small portfolio of early-stage advisory engagements
+      - Corporate governance and restructuring support
+      - Hands-on founder mentoring
+
+  - title: Co-Founder & Operations
+    company: Camsol.io
+    period: Nov 2022 - Apr 2025
+    location: Berlin, Germany
+    type: Full-time
+    description: |
+      Co-founded a B2B web development agency. I ran day-to-day operations,
+      managed client relationships, and helped shape the product and UX side
+      of our projects. We grew the team and client base before I moved on.
+    highlights:
+      - Ran operations and client management for B2B agency
+      - Contributed to product decisions and UX strategy
+      - Grew the team from 2 to a small cross-functional group
+
+  - title: Business Development Trainee
+    company: Sparkasse Vorpommern
+    period: Apr 2021 - Oct 2022
+    location: Mecklenburg-West Pomerania, Germany
+    type: Full-time
+    description: |
+      My first "real job" in a structured corporate environment. Learned a lot
+      about how larger organisations work, contributed to a digital platform launch
+      (Karla Plattform GmbH), and got hands-on with UX research and B2B strategy.
+    highlights:
+      - Helped launch Karla Plattform GmbH
+      - UX research and user testing
+      - Learned structured business development in banking
+
+  - title: Product Designer
+    company: Karla Plattform GmbH
+    period: Apr 2021 - Oct 2022
+    location: Greifswald, Germany
+    type: Full-time
+    description: |
+      Designed the product identity and contributed to software development for
+      a digital platform within the Sparkasse ecosystem. My first time working
+      on product design in a larger team context.
+    highlights:
+      - Designed corporate identity from scratch
+      - Contributed to frontend development
+      - Ran early product-market fit research
+
+education:
+  - degree: Bachelor of Science - Economics
+    institution: "Universit\xE4t Greifswald"
+    period: 2018 - 2021
+    highlights:
+      - SWOT Analysis specialization
+
+  - degree: Bachelor of Science - Wirtschaftsinformatik (Business Informatics)
+    institution: WINGS Professional Studies - Wismar University
+    period: Oct 2021 - Sep 2022
+    highlights:
+      - Agile Methods
+      - Product Development
+
+projects:
+  - name: c-node.ai
+    description: Explainable AI forecasting platform — modular decision intelligence for SMEs. Our core product at Creativate, turning data into scenarios leaders can actually defend.
+    tech:
+      - Python
+      - FastAPI
+      - Next.js
+      - PostgreSQL
+      - TimescaleDB
+    url: https://c-node.ai
+
+  - name: Creativate AI Studio
+    description: Deep-tech consulting and venture studio. We help companies integrate AI responsibly — EU AI Act ready, business-first. My entrepreneurial home base.
+    tech:
+      - Python
+      - TypeScript
+      - Docker
+      - Anthropic API
+    url: https://creativate.ai.studio
+
+  - name: AI Playbook
+    description: Practical frameworks and playbooks for teams adopting AI — from strategy to implementation. Built from real consulting engagements.
+    tech:
+      - AI Strategy
+      - Prompt Engineering
+      - Workshops
+    url: https://ai-playbook.eu
+
+languages:
+  - language: German
+    level: Native
+  - language: English
+    level: Professional
+
+recommendations:
+  - name: Lisa Bennewitz
+    role: "Board Member, Entrepreneur, Investor"
+    relationship: Mentor at Creativate
+    excerpt: "Leonardo is one of those people who just gets things done — he listens, adapts quickly, and brings real energy to the team."
+
+  - name: Thomas Metzke
+    role: "Vorstand, Sparkasse Vorpommern"
+    relationship: Senior colleague
+    excerpt: "Leonardo brought genuine curiosity and commitment to the Karla Plattform project. He learned fast and wasn't afraid to ask the right questions."
+
+portfolio:
+  headline: "Builder Looking for a Team"
+  subheadline: "11 years of starting things, breaking things, and figuring it out — now looking to bring that experience to a team where I can contribute and keep learning."
+  about: >
+    I've spent the last decade building ventures — some worked, some didn't, all taught me
+    something. My side projects (c-node.ai, Creativate AI Studio) keep me sharp, but what
+    I'm really looking for is a team. A place where I can bring what I've learned about
+    product, business development, and getting things off the ground, and combine it with
+    the structure and perspective that comes from working with good people.
+    I don't have all the answers, but I'm reliable, I care about the work, and I'm not
+    afraid to do the unglamorous stuff that actually moves things forward.
+  services:
+    - title: "Product & Innovation"
+      icon: "\U0001F3AF"
+      description: "I've built products from scratch and learned what works (and what doesn't) through a lot of trial and error. Happy to help with user research, roadmapping, or just rolling up sleeves on whatever needs doing."
+    - title: "AI Strategy & Consulting"
+      icon: "\U0001F916"
+      description: "Working on explainable AI and EU AI Act compliance through Creativate. I can help teams think through how to adopt AI practically — not just the shiny parts, but the messy real-world stuff too."
+    - title: "Business Development & Operations"
+      icon: "\U0001F4C8"
+      description: "Building partnerships, sorting out processes, connecting dots between teams. I've done this across startups and a couple of corporate settings — I'm not an expert at everything, but I know how to make progress."
+  linkedin_posts:
+    - author: "EU\u2013INC"
+      author_image: "eu_inc.jpg"
+      excerpt: "President von der Leyen just unveiled EU-INC at Davos — a unified legal framework for European entrepreneurs. Online company registration in 48 hours, streamlined cross-border operations. A single legal entity for all European founders. This is what building for Europe looks like."
+      date: "Jan 2026"
+      url: "https://www.linkedin.com/feed/update/urn:li:activity:7419617084063502336/"
+      likes: "12.6k"
+      comments: "596"
+    - author: "Leonardo Bornhaeusser"
+      author_image: ""
+      excerpt: "Germany spends ~129 billion euros annually on R&D — yet early-stage entrepreneurial activity remains roughly half the level of the US. Only 27 of 702 funded German startups in 2024 had all-female founding teams. We built Creativate AI Studio as a female-led, deep-tech initiative. Diverse teams aren't optional — they're how you maximize innovation potential."
+      date: "Nov 2025"
+      url: "https://www.linkedin.com/posts/leonardo-bornh%C3%A4u%C3%9Fer_germany-spends-billions-on-ideas-that-never-activity-7395019693574619136-vCPk"
+      likes: "62"
+      comments: "8"
+    - author: "Jan Seidemann"
+      author_image: ""
+      excerpt: "Futury just launched their first female founder program — 'Scale, Grow & Connect for Women-Led Ventures' with 13 startups including Creativate AIStudio. Leadership development, corporate partnerships, and strategic networking in the Rhine-Main region. Super valuable knowledge-sharing and a safe space for open exchange."
+      date: "Nov 2025"
+      url: "https://www.linkedin.com/posts/janseidemann_das-erste-female-founder-programm-von-activity-7394287918678241280-cYc5"
+      likes: "119"
+      comments: "16"
+    - author: "Landkreis Mittelsachsen"
+      author_image: "landkreis_mittelsachsen.jpg"
+      excerpt: "Speaking at the 9th Wirtschaftsfrauen networking event in Mittelsachsen on 'Investing Reimagined: Business Angels, Women Power, and Tokenization.' How women can translate capital, knowledge, and values into real impact — alongside Christoph Jentzsch from Tokenize.it on democratizing investments."
+      date: "Oct 2025"
+      url: "https://www.linkedin.com/posts/landkreis-mittelsachsen_mut-kapital-wirkung-frauen-gestalten-ugcPost-7389619833786494976-hsDP"
+      likes: "74"
+      comments: "6"
+    - author: "Leonardo Bornhaeusser"
+      author_image: ""
+      excerpt: "18km through mud, walls, and ice water — XLETIX was brutal. But building a deep-tech startup is the same race. We solved a critical ML architecture challenge in cNode, completely rebuilt our proof-of-concept to show substance over marketing, and relocated R&D to Linz. We don't run for headlines — we run for a vision."
+      date: "Jul 2025"
+      url: "https://www.linkedin.com/posts/leonardo-bornh%C3%A4u%C3%9Fer_bootstrapping-deeptech-xletix-activity-7348995660454490114-dvav"
+      likes: "43"
+      comments: "7"
+    - author: "Dennis Albert"
+      author_image: ""
+      excerpt: "From our recent activity — building at the intersection of explainable AI, tokenized fundraising, and European deep-tech. Follow along for updates on cNode, Creativate AI Studio, and the journey of turning research into real-world decision intelligence."
+      date: "Nov 2024"
+      url: "https://www.linkedin.com/posts/activity-7262738115109302273-4SAF"
+      likes: ""
+      comments: ""
+  cta:
+    text: "Let's talk"
+    url: "mailto:leonardo@creativate.tech"
+
+preferences:
+  job_types:
+    - Part-time
+    - Contract
+    - Freelance
+    - Consulting
+    - Full-time
+  roles:
+    - Business Development Manager
+    - Innovation Manager
+    - AI Consultant
+    - Startup Consultant
+    - Strategy Consultant
+    - Incubator Manager
+    - Accelerator Manager
+    - Product Manager
+    - Product Lead
+    - Venture Builder
+    - Growth Manager
+    - Operations Manager
+    - UX Lead
+    - Design Lead
+    - Project Manager
+    - Consultant
+  industries:
+    - Deep Tech
+    - AI/ML
+    - B2B SaaS
+    - Startups
+    - Incubators & Accelerators
+    - Innovation Labs
+    - Consulting
+    - Decision Intelligence
+    - RegTech
+    - Digital Products
+    - E-Commerce
+    - FinTech
+    - GreenTech
+    - Venture Capital
+  locations:
+    - Berlin
+    - Remote
+    - Hybrid
+  min_salary: 40000
+  currency: EUR
