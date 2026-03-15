@@ -95,7 +95,7 @@
     .cv-avatar {
       width: 80px;
       height: 80px;
-      border-radius: 10px;
+      border-radius: 50%;
       object-fit: cover;
       flex-shrink: 0;
       border: 2px solid #e5e7eb;
@@ -139,7 +139,7 @@
 
     /* ---- Sections ---- */
     .cv-section {
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
     }
     .cv-section-header {
       display: flex;
@@ -407,67 +407,100 @@
     @media print {
       @page {
         size: A4;
-        margin: 1.8cm;
+        margin: 1.2cm 1.6cm;
       }
 
       body {
         padding: 0;
         max-width: 100%;
-        font-size: 9.5pt;
+        font-size: 8.5pt;
         background: #ffffff;
+        line-height: 1.45;
       }
 
       .cv-topbar { display: none !important; }
       .print-btn { display: none !important; }
 
+      /* ---- Header: keep compact ---- */
       .cv-header {
         border-bottom-width: 2px;
+        margin-bottom: 0.85rem;
+        padding-bottom: 0.75rem;
+        gap: 1rem;
+      }
+      .cv-header h1 { font-size: 1.3rem; }
+      .cv-avatar { width: 58px; height: 58px; border-radius: 50%; }
+      .cv-headline { font-size: 0.8rem; margin-bottom: 0.4rem; }
+      .cv-contact { font-size: 0.72rem; gap: 0.3rem 0.8rem; }
+
+      /* ---- Tighter section spacing ---- */
+      .cv-section { margin-bottom: 0.75rem; }
+      .cv-section-header { margin-bottom: 0.4rem; padding-bottom: 0.2rem; }
+      .cv-section-title { font-size: 0.85rem; }
+      .cv-section-label { font-size: 0.52rem; padding: 0.08rem 0.3rem; }
+
+      /* ---- Summary ---- */
+      .cv-summary {
+        font-size: 0.74rem;
+        line-height: 1.5;
+        border-left-color: #333;
+        padding-left: 0.5rem;
       }
 
-      .cv-header h1 { font-size: 1.5rem; }
-
-      .cv-avatar {
-        width: 64px;
-        height: 64px;
-        border-radius: 8px;
+      /* ---- Entries: avoid breaking WITHIN an entry ---- */
+      .cv-entry {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        border-left-color: #ccc;
+        margin-bottom: 0.6rem;
+        padding-left: 0.6rem;
       }
-
-      .cv-section { page-break-inside: avoid; }
-      .cv-entry { page-break-inside: avoid; border-left-color: #ccc; }
       .cv-entry:hover { border-left-color: #ccc; }
-      .cv-project-card { page-break-inside: avoid; }
+      .cv-entry-title { font-size: 0.78rem; }
+      .cv-entry-company { font-size: 0.72rem; color: #333 !important; }
+      .cv-entry-period { font-size: 0.58rem; }
+      .cv-entry-location { font-size: 0.62rem; margin-bottom: 0.1rem; }
+      .cv-entry-desc { font-size: 0.7rem; line-height: 1.45; margin-bottom: 0.15rem; }
+      .cv-entry-highlights li { font-size: 0.66rem; line-height: 1.4; margin-bottom: 0.02rem; }
 
-      a {
-        color: #1a1a1a !important;
-        text-decoration: none !important;
+      /* ---- Section headers should stay with content ---- */
+      .cv-section-header {
+        page-break-after: avoid;
+        break-after: avoid;
       }
 
-      .cv-contact a[href]::after,
-      .cv-project-card h4 a[href]::after {
-        content: none;
-      }
+      /* ---- DON'T avoid page-break on whole section (they're too big) ---- */
+      /* Instead, avoid orphaned section headers at page bottom */
 
-      .cv-header .cv-headline { color: #333 !important; }
-      .cv-entry-company { color: #333 !important; }
-      .cv-summary { border-left-color: #333; }
-
+      /* ---- Skills: compact for print ---- */
+      .cv-skills-row { gap: 1rem; }
+      .cv-skills-group-title { font-size: 0.6rem; margin-bottom: 0.2rem; }
+      .cv-skill-pill { font-size: 0.6rem; padding: 0.1rem 0.35rem; }
       .cv-skill-pill.tech {
         color: #333 !important;
         border-color: #ccc !important;
         background: #f5f5f5 !important;
       }
+      .cv-skills-list { gap: 0.2rem; }
 
-      .cv-project-tech span {
-        color: #333 !important;
-        border-color: #ccc !important;
-        background: #f5f5f5 !important;
-      }
+      /* ---- Languages: inline compact ---- */
+      .cv-languages { font-size: 0.7rem; gap: 0.4rem; }
 
-      .cv-project-card { background: #fff !important; }
-      .cv-project-card:hover { border-color: #e5e7eb; }
+      /* ---- Projects: hide in print (available on portfolio page) ---- */
+      .cv-section-projects { display: none !important; }
+
+      /* ---- Colors for print ---- */
+      a { color: #1a1a1a !important; text-decoration: none !important; }
+      .cv-contact a[href]::after,
+      .cv-project-card h4 a[href]::after { content: none; }
+      .cv-header .cv-headline { color: #333 !important; }
       .cv-section-label { background: #f0f0f0 !important; color: #333 !important; }
 
-      .cv-footer { display: none; }
+      /* ---- Footer: hide in print to avoid orphaned page ---- */
+      .cv-footer { display: none !important; }
+
+      /* ---- Orphan / widow control ---- */
+      p, li { orphans: 3; widows: 3; }
     }
 
     /* ---- Responsive ---- */
@@ -570,10 +603,7 @@
       <span class="cv-section-label" data-i18n="label_summary">Summary</span>
       <span class="cv-section-title" data-i18n="title_summary">Summary</span>
     </div>
-    <p class="cv-summary" data-i18n="summary_text">Founder building AI decision software and collaborating with companies on product and innovation projects. As CEO &amp; Co-Founder of Creativate AI Studio, I&#39;m developing cNode — a platform that helps teams structure complex decisions, compare scenarios, and generate explainable AI-assisted recommendations. Alongside the product, we launched AI Playbook, a multilingual knowledge base covering the EU AI Act, GDPR, and responsible AI adoption.
-Over the past decade I&#39;ve built and operated multiple ventures across product design, business development, and software. My work usually sits at the intersection of product strategy, AI, and early-stage execution — turning ideas into working systems and prototypes.
-In addition to running Creativate, I collaborate with companies on part-time or project engagements around product strategy, AI product development, MVP architecture, and early-stage venture building. I enjoy working with small teams that move quickly and build meaningful products.
-</p>
+    <p class="cv-summary" data-i18n="summary_text">Founder and CEO building AI decision software at Creativate AI Studio. Over the past decade, built and operated multiple ventures across product design, business development, and software. Open to part-time leadership, advisory, and product collaboration roles.</p>
   </section>
 
   <!-- Experience -->
@@ -974,9 +1004,9 @@ from scratch.</p>
   </section>
   
 
-  <!-- Projects -->
+  <!-- Projects (hidden in print — visible on screen/portfolio) -->
   
-  <section class="cv-section">
+  <section class="cv-section cv-section-projects">
     <div class="cv-section-header">
       <span class="cv-section-label" data-i18n="label_projects">Projects</span>
       <span class="cv-section-title" data-i18n="title_projects">Projects</span>
@@ -1061,7 +1091,7 @@ from scratch.</p>
         save_pdf: "Save as PDF",
         label_summary: "Summary",
         title_summary: "Summary",
-        summary_text: "Founder building AI decision software and collaborating with companies on product and innovation projects. As CEO & Co-Founder of Creativate AI Studio, I\u2019m developing cNode \u2014 a platform that helps teams structure complex decisions, compare scenarios, and generate explainable AI-assisted recommendations. We also launched AI Playbook, a multilingual knowledge base covering the EU AI Act, GDPR, and responsible AI adoption. Over the past decade I\u2019ve built and operated multiple ventures across product design, business development, and software. In addition to running Creativate, I collaborate with companies on part-time or project engagements around product strategy, AI product development, and early-stage venture building.",
+        summary_text: "Founder and CEO building AI decision software at Creativate AI Studio. Over the past decade, built and operated multiple ventures across product design, business development, and software. Open to part-time leadership, advisory, and product collaboration roles.",
         label_experience: "Experience",
         title_experience: "Experience",
         label_education: "Education",
@@ -1080,7 +1110,7 @@ from scratch.</p>
         save_pdf: "Als PDF speichern",
         label_summary: "Zusammenfassung",
         title_summary: "Zusammenfassung",
-        summary_text: "Gr\u00fcnder, der KI-Entscheidungssoftware baut und mit Unternehmen an Produkt- und Innovationsprojekten zusammenarbeitet. Als CEO & Co-Founder von Creativate AI Studio entwickle ich cNode \u2014 eine Plattform, die Teams hilft, komplexe Entscheidungen zu strukturieren, Szenarien zu vergleichen und erkl\u00e4rbare KI-gest\u00fctzte Empfehlungen zu generieren. Daneben haben wir AI Playbook gestartet, eine mehrsprachige Wissensdatenbank zum EU AI Act, DSGVO und verantwortungsvoller KI-Adoption. In den letzten zehn Jahren habe ich mehrere Unternehmen aufgebaut und betrieben. Neben Creativate arbeite ich mit Unternehmen an Teilzeit- oder Projektengagements rund um Produktstrategie, KI-Produktentwicklung und Fr\u00fchphasen-Venture-Building.",
+        summary_text: "Gr\u00fcnder und CEO, der bei Creativate AI Studio KI-Entscheidungssoftware baut. In den letzten zehn Jahren mehrere Unternehmen in Produktdesign, Business Development und Software aufgebaut und betrieben. Offen f\u00fcr Teilzeit-F\u00fchrung, Beratung und Produkt-Kollaborationen.",
         label_experience: "Erfahrung",
         title_experience: "Erfahrung",
         label_education: "Ausbildung",
@@ -1099,7 +1129,7 @@ from scratch.</p>
         save_pdf: "Enregistrer en PDF",
         label_summary: "R\u00e9sum\u00e9",
         title_summary: "R\u00e9sum\u00e9",
-        summary_text: "Fondateur construisant des logiciels de d\u00e9cision IA et collaborant avec des entreprises sur des projets de produit et d\u2019innovation. En tant que CEO & Co-Fondateur de Creativate AI Studio, je d\u00e9veloppe cNode \u2014 une plateforme qui aide les \u00e9quipes \u00e0 structurer des d\u00e9cisions complexes, comparer des sc\u00e9narios et g\u00e9n\u00e9rer des recommandations explicables. Nous avons aussi lanc\u00e9 AI Playbook, une base de connaissances multilingue sur le EU AI Act et l\u2019adoption responsable de l\u2019IA. Au cours de la derni\u00e8re d\u00e9cennie, j\u2019ai construit et g\u00e9r\u00e9 plusieurs ventures. En plus de diriger Creativate, je collabore avec des entreprises sur des engagements \u00e0 temps partiel autour de la strat\u00e9gie produit, du d\u00e9veloppement de produits IA et du venture building.",
+        summary_text: "Fondateur et CEO d\u00e9veloppant des logiciels de d\u00e9cision IA chez Creativate AI Studio. Au cours de la derni\u00e8re d\u00e9cennie, a construit et g\u00e9r\u00e9 plusieurs ventures en design produit, d\u00e9veloppement commercial et logiciel. Ouvert aux r\u00f4les de leadership \u00e0 temps partiel, conseil et collaboration produit.",
         label_experience: "Exp\u00e9rience",
         title_experience: "Exp\u00e9rience",
         label_education: "Formation",
