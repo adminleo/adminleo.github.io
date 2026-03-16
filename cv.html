@@ -367,6 +367,12 @@
     .cv-project-card h4 a:hover {
       color: #4f46e5;
     }
+    .cv-project-role {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: #4f46e5;
+      margin-bottom: 0.2rem;
+    }
     .cv-project-desc {
       font-size: 0.72rem;
       color: #555;
@@ -486,8 +492,20 @@
       /* ---- Languages: inline compact ---- */
       .cv-languages { font-size: 0.7rem; gap: 0.4rem; }
 
-      /* ---- Projects: hide in print (available on portfolio page) ---- */
-      .cv-section-projects { display: none !important; }
+      /* ---- Projects: compact for print ---- */
+      .cv-project-card {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        border-color: #ddd !important;
+        background: #fafafa !important;
+        padding: 0.5rem !important;
+        margin-bottom: 0.35rem !important;
+      }
+      .cv-project-card h4 { font-size: 0.75rem; margin-bottom: 0.15rem; }
+      .cv-project-card p { font-size: 0.65rem; line-height: 1.4; }
+      .cv-project-card .cv-project-role { font-size: 0.6rem; }
+      .cv-project-card .cv-skills-list { gap: 0.15rem; }
+      .cv-project-card .cv-skill-pill { font-size: 0.55rem; padding: 0.05rem 0.25rem; }
 
       /* ---- Colors for print ---- */
       a { color: #1a1a1a !important; text-decoration: none !important; }
@@ -1033,7 +1051,7 @@ from scratch.</p>
   </section>
   
 
-  <!-- Projects (hidden in print — visible on screen/portfolio) -->
+  <!-- Projects -->
   
   <section class="cv-section cv-section-projects">
     <div class="cv-section-header">
@@ -1044,6 +1062,7 @@ from scratch.</p>
       
       <div class="cv-project-card">
         <h4><a href="https://c-node.ai" target="_blank" rel="noopener">cNode — Decision Workspace</a></h4>
+        
         <p class="cv-project-desc">AI-augmented decision platform where teams define decisions, set weighted goals, state assumptions, create and compare scenarios, get LLM-powered recommendations, and export audit-ready decision logs. Full-stack SaaS with multi-provider AI abstraction, scoring engine, Monte Carlo analysis, and multi-tenant RBAC.</p>
         
         <div class="cv-project-tech">
@@ -1068,6 +1087,7 @@ from scratch.</p>
       
       <div class="cv-project-card">
         <h4><a href="https://creativate.tech" target="_blank" rel="noopener">Creativate AIStudio</a></h4>
+        
         <p class="cv-project-desc">Deep-tech venture studio and consulting company. We build AI products and help companies integrate AI responsibly — EU AI Act compliant, business-first. Runs a monorepo ecosystem with company website, content hub, IP data room, and client platforms.</p>
         
         <div class="cv-project-tech">
@@ -1086,6 +1106,7 @@ from scratch.</p>
       
       <div class="cv-project-card">
         <h4><a href="https://ai-playbook.eu" target="_blank" rel="noopener">AI Playbook</a></h4>
+        
         <p class="cv-project-desc">Multilingual AI compliance and regulatory knowledge base covering EU AI Act, GDPR, EDPB guidelines, and responsible AI practices. 30+ articles across 7 categories, interactive readiness assessments, full-text search, and glossary. Content-driven lead-gen tool.</p>
         
         <div class="cv-project-tech">
@@ -1104,6 +1125,7 @@ from scratch.</p>
       
       <div class="cv-project-card">
         <h4><a href="https://gasvisor.eu" target="_blank" rel="noopener">Gasvisor — IoT Gas Management</a></h4>
+        <p class="cv-project-role">Product Design Lead (Camsol Incubation)</p>
         <p class="cv-project-desc">IoT CO₂ management platform for facility managers. Smart sensors on gas bottles measure fill levels in real-time, feed data to a cloud dashboard, and trigger automated reordering via supplier networks. Led design system setup and UI refinement during early incubation at Camsol.</p>
         
         <div class="cv-project-tech">
@@ -1122,6 +1144,7 @@ from scratch.</p>
       
       <div class="cv-project-card">
         <h4><a href="https://checkme-app.com" target="_blank" rel="noopener">CheckMe — Digital Health Platform</a></h4>
+        <p class="cv-project-role">Strategic Consultant (Camsol Incubation)</p>
         <p class="cv-project-desc">Digital health platform for breast cancer detection across African communities. Combines AI-powered self-check guides, a 24/7 health companion (Nia), provider network, and the CheckMate screening device for clinics. Consulted on platform architecture — structuring doctor-patient workflows and dashboard design.</p>
         
         <div class="cv-project-tech">
@@ -1140,6 +1163,7 @@ from scratch.</p>
       
       <div class="cv-project-card">
         <h4><a href="https://skulup.com" target="_blank" rel="noopener">Skulup — White-Label LMS</a></h4>
+        <p class="cv-project-role">Product Lead (Camsol Internal)</p>
         <p class="cv-project-desc">White-label Learning Management System targeting African education centers. Enables training institutes to create branded learning platforms, manage courses, enroll students, and collect payments via mobile money — all from a single dashboard. Built as an internal Camsol product, mobile-first and designed for low-bandwidth environments.</p>
         
         <div class="cv-project-tech">
