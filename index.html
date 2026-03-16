@@ -1050,34 +1050,52 @@
 
     /* ─── Print / PDF Light Theme ─── */
     @media print {
+      @page {
+        size: A4;
+        margin: 1.4cm 1.6cm;
+      }
+
       *, *::before, *::after {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
+
+      /* ---- Base ---- */
       body {
         background: #fff !important;
         color: #1a1a1a !important;
-        font-size: 11pt !important;
-        line-height: 1.5 !important;
+        font-size: 9pt !important;
+        line-height: 1.45 !important;
+        padding: 0 !important;
+        max-width: 100% !important;
       }
       body::before, body::after { display: none !important; }
-      .nav, .pdf-fab { display: none !important; }
-      .section-divider { border-color: #e5e5e5 !important; }
-      a { color: #4f46e5 !important; }
+      a { color: #333 !important; text-decoration: none !important; }
+
+      /* ---- Hide UI elements ---- */
+      .nav, .pdf-fab, .hero-cta { display: none !important; }
+
+      /* ---- Section dividers ---- */
+      .section-divider {
+        border-color: #ddd !important;
+        margin: 0.3rem auto !important;
+      }
+
+      /* ---- Hero: compact ---- */
       .hero {
-        padding: 1.5rem 0 1rem !important;
-        gap: 2rem !important;
+        padding: 0.8rem 0 0.5rem !important;
+        gap: 1.2rem !important;
         animation: none !important;
       }
       .hero-label {
         color: #6366f1 !important;
+        font-size: 0.6rem !important;
       }
-      .hero-label::before {
-        background: #6366f1 !important;
-      }
+      .hero-label::before { background: #6366f1 !important; }
       .hero-text h1 {
-        font-size: 2.2rem !important;
+        font-size: 1.6rem !important;
         color: #1a1a1a !important;
+        margin-bottom: 0.3rem !important;
       }
       .hero-text h1 .gradient-text {
         background: none !important;
@@ -1086,55 +1104,88 @@
       }
       .hero-text .subtitle {
         color: #555 !important;
+        font-size: 0.78rem !important;
+        line-height: 1.4 !important;
       }
       .hero-image::before, .hero-image::after { display: none !important; }
       .hero-image img {
-        width: 140px !important;
-        height: 140px !important;
+        width: 100px !important;
+        height: 100px !important;
         border: 2px solid #ddd !important;
         box-shadow: none !important;
       }
+
+      /* ---- Sections: tight spacing ---- */
       .section {
-        padding: 1.5rem 0 !important;
+        padding: 0.6rem 0 !important;
         opacity: 1 !important;
         transform: none !important;
       }
       .section-label {
         color: #6366f1 !important;
+        font-size: 0.55rem !important;
+        margin-bottom: 0.15rem !important;
       }
       .section-label::before { color: #999 !important; }
       .section-title {
-        font-size: 1.3rem !important;
+        font-size: 1rem !important;
         color: #1a1a1a !important;
+        margin-bottom: 0.2rem !important;
       }
       .section-subtitle {
         color: #666 !important;
+        font-size: 0.75rem !important;
+        margin-bottom: 0.5rem !important;
       }
+
+      /* ---- About ---- */
       .about-text {
         color: #444 !important;
-        font-size: 0.95rem !important;
+        font-size: 0.78rem !important;
+        line-height: 1.5 !important;
+      }
+
+      /* ---- Services: compact grid ---- */
+      .services-grid {
+        gap: 0.5rem !important;
       }
       .service-card {
         background: #f8f8fa !important;
         border-color: #e5e5e5 !important;
         break-inside: avoid;
+        page-break-inside: avoid;
         box-shadow: none !important;
+        padding: 0.6rem !important;
       }
       .service-card::before, .service-card::after { display: none !important; }
-      .service-card h3 { color: #1a1a1a !important; }
-      .service-card p { color: #555 !important; }
+      .service-card h3 { color: #1a1a1a !important; font-size: 0.8rem !important; }
+      .service-card p { color: #555 !important; font-size: 0.72rem !important; }
       .service-icon {
         background: #eee !important;
         border-color: #ddd !important;
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 1rem !important;
       }
+
+      /* ---- Skills ---- */
       .skill-pill {
         background: #f0f0f5 !important;
         border-color: #ddd !important;
         color: #444 !important;
+        font-size: 0.65rem !important;
+        padding: 0.15rem 0.45rem !important;
       }
       .skill-pill.tech {
         border-color: #c4b5fd !important;
         color: #6d28d9 !important;
+      }
+
+      /* ---- Timeline / Experience ---- */
+      .timeline-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 0.4rem !important;
       }
       .timeline-dot {
         background: #6366f1 !important;
@@ -1145,77 +1196,134 @@
         background: #ddd !important;
         opacity: 1 !important;
       }
-      .timeline-content h3 { color: #1a1a1a !important; }
+      .timeline-content {
+        padding-bottom: 0.3rem !important;
+      }
+      .timeline-content h3 {
+        color: #1a1a1a !important;
+        font-size: 0.85rem !important;
+      }
       .timeline-content .company {
         background: none !important;
         -webkit-text-fill-color: #4f46e5 !important;
         color: #4f46e5 !important;
+        font-size: 0.75rem !important;
       }
-      .timeline-content .period { color: #888 !important; }
-      .timeline-content p { color: #444 !important; }
+      .timeline-content .period {
+        color: #888 !important;
+        font-size: 0.65rem !important;
+      }
+      .timeline-content p {
+        color: #444 !important;
+        font-size: 0.75rem !important;
+        line-height: 1.45 !important;
+      }
+      .timeline-more {
+        font-size: 0.72rem !important;
+      }
       .highlight-tag {
         background: #f0edf8 !important;
         border-color: #d4c8f0 !important;
         color: #6d28d9 !important;
+        font-size: 0.6rem !important;
+        padding: 0.1rem 0.35rem !important;
+      }
+
+      /* ---- Projects: compact cards ---- */
+      .projects-grid {
+        gap: 0.5rem !important;
       }
       .project-card {
         background: #f8f8fa !important;
         border-color: #e5e5e5 !important;
         break-inside: avoid;
+        page-break-inside: avoid;
         box-shadow: none !important;
+        padding: 0.6rem !important;
       }
       .project-card::before { display: none !important; }
+      .project-card h3 { font-size: 0.82rem !important; }
       .project-card h3 a { color: #1a1a1a !important; }
-      .project-card p { color: #555 !important; }
+      .project-card p {
+        color: #555 !important;
+        font-size: 0.7rem !important;
+        line-height: 1.4 !important;
+      }
       .project-tech span {
         background: #f0edf8 !important;
         border-color: #d4c8f0 !important;
         color: #6d28d9 !important;
+        font-size: 0.58rem !important;
       }
-      .project-link { color: #4f46e5 !important; }
+      .project-link { color: #4f46e5 !important; font-size: 0.7rem !important; }
+
+      /* ---- LinkedIn posts: compact ---- */
+      .linkedin-grid {
+        gap: 0.5rem !important;
+      }
+      .linkedin-card {
+        background: #f8f8fa !important;
+        border-color: #e5e5e5 !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        padding: 0.6rem !important;
+      }
+      .linkedin-card-body {
+        color: #444 !important;
+        font-size: 0.7rem !important;
+        line-height: 1.4 !important;
+      }
+      .linkedin-card-author { color: #1a1a1a !important; font-size: 0.72rem !important; }
+      .linkedin-card-date, .linkedin-stat { color: #888 !important; font-size: 0.6rem !important; }
+      .linkedin-card-icon { color: #0a66c2 !important; }
+      .linkedin-card-link { color: #0a66c2 !important; font-size: 0.65rem !important; }
+
+      /* ---- Recommendations ---- */
+      .reco-card {
+        background: #f8f8fa !important;
+        border-color: #e5e5e5 !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .reco-card blockquote {
+        color: #444 !important;
+        border-left-color: #6366f1 !important;
+        font-size: 0.75rem !important;
+      }
+      .reco-author { color: #1a1a1a !important; font-size: 0.72rem !important; }
+      .reco-role { color: #666 !important; font-size: 0.65rem !important; }
+
+      /* ---- Connect ---- */
+      .connect-grid {
+        gap: 0.4rem !important;
+      }
       .connect-card, .resource-chip {
         background: #f0f0f5 !important;
         border-color: #ddd !important;
         color: #444 !important;
         break-inside: avoid;
+        font-size: 0.72rem !important;
       }
       .connect-card:hover, .resource-chip:hover { color: #444 !important; }
-      .connect-detail { color: #666 !important; }
+      .connect-detail { color: #666 !important; font-size: 0.68rem !important; }
       .connect-resources { border-color: #ddd !important; }
-      .connect-resources-label { color: #888 !important; }
-      .reco-card, .linkedin-card {
-        background: #f8f8fa !important;
-        border-color: #e5e5e5 !important;
-        break-inside: avoid;
-      }
-      .linkedin-card-body { color: #444 !important; }
-      .linkedin-card-author { color: #1a1a1a !important; }
-      .linkedin-card-date, .linkedin-stat { color: #888 !important; }
-      .linkedin-card-icon { color: #0a66c2 !important; }
-      .linkedin-card-link { color: #0a66c2 !important; }
-      .reco-card blockquote {
-        color: #444 !important;
-        border-left-color: #6366f1 !important;
-      }
-      .reco-author { color: #1a1a1a !important; }
-      .reco-role { color: #666 !important; }
+      .connect-resources-label { color: #888 !important; font-size: 0.65rem !important; }
+      .resource-chip { font-size: 0.65rem !important; padding: 0.25rem 0.5rem !important; }
+
+      /* ---- Footer ---- */
       .footer {
         color: #999 !important;
         border-color: #e5e5e5 !important;
+        font-size: 0.65rem !important;
+        padding: 0.4rem 0 !important;
       }
-      .btn-gradient {
-        background: #4f46e5 !important;
-        box-shadow: none !important;
+
+      /* ---- Page break control ---- */
+      .section-label, .section-title {
+        page-break-after: avoid;
+        break-after: avoid;
       }
-      .btn-outline {
-        border-color: #ccc !important;
-        color: #444 !important;
-      }
-      .hero-cta { display: none !important; }
-      @page {
-        margin: 1.5cm;
-        size: A4;
-      }
+      p, li { orphans: 3; widows: 3; }
     }
 
     /* ─── Responsive ─── */
