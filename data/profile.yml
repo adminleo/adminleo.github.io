@@ -186,6 +186,15 @@ education:
       - Business Strategy & Econometrics
       - Transferred from BSP Business School Berlin
 
+  - degree: "Certified ExO Consultant"
+    institution: OpenExO
+    period: 2020
+    status: completed
+    highlights:
+      - Exponential Organizations Framework
+      - ExO Sprint Methodology
+      - Organizational Transformation & Scaling
+
   - degree: UX/UI Design Bootcamp
     institution: Ironhack
     period: 2020
