@@ -77,17 +77,23 @@ experience:
       - Hands-on founder mentoring
 
   - title: Co-Founder & Head of Operations
-    company: Camsol.io
+    company: Camsol.io (Camsol Services GmbH)
     period: Nov 2022 - Apr 2025
     location: Berlin, Germany
     type: Full-time
     description: |
-      Co-founded a B2B web development agency. Led operations, client delivery,
-      and product direction while growing the team and project portfolio.
+      Co-founded a tech-for-equity agency building software for startups and SMEs.
+      Led operations, client delivery, and product direction. Also managed our internal
+      incubator (Camsol Innovations GmbH, now seventy2 Holding GmbH), overseeing
+      portfolio health, milestone tracking, and product design for incubation projects
+      including Gasvisor, CheckMe, and Skulup. Scaled to 6 GmbHs + 2 LTDs,
+      ~100 people at peak across Germany, Cameroon, and Rwanda.
     highlights:
-      - Led operations and client management for B2B agency
-      - Drove product decisions and UX strategy
-      - Grew the team from 2 to a small cross-functional group
+      - Led operations and client management for B2B tech agency
+      - Managed internal incubator portfolio (Gasvisor, CheckMe, Skulup)
+      - Oversaw portfolio health monitoring and milestone delivery
+      - Scaled from 2 co-founders to ~100 people across 3 countries
+      - Built 6 GmbHs + 2 LTDs in 3 years
 
   - title: Business Development Trainee
     company: Sparkasse Vorpommern
@@ -167,15 +173,17 @@ education:
     period: Oct 2021 - Sep 2022
     status: started
     highlights:
-      - Agile Methods
-      - Product Development
+      - Agile Methods & Scrum
+      - Software Engineering Fundamentals
+      - Database Systems
 
   - degree: "Economics"
     institution: "Universit\xE4t Greifswald"
     period: 2018 - 2021
     status: started
     highlights:
-      - SWOT Analysis
+      - Microeconomics & Market Analysis
+      - Business Strategy & Econometrics
       - Transferred from BSP Business School Berlin
 
   - degree: UX/UI Design Bootcamp
@@ -192,7 +200,8 @@ education:
     period: 2016 - 2018
     status: started
     highlights:
-      - International Business
+      - International Business & Trade
+      - Macroeconomics & Business Law
       - Transferred to Universität Greifswald
 
 projects:
@@ -225,6 +234,36 @@ projects:
       - Full-Text Search
       - HubSpot Analytics
     url: https://ai-playbook.eu
+
+  - name: "Gasvisor — IoT Gas Management"
+    description: "IoT CO\u2082 management platform for facility managers. Smart sensors on gas bottles measure fill levels in real-time, feed data to a cloud dashboard, and trigger automated reordering via supplier networks. Led design system setup and UI refinement during early incubation at Camsol."
+    role: "Product Design Lead (Camsol Incubation)"
+    tech:
+      - IoT Sensors
+      - Cloud Dashboard
+      - Mobile App
+      - Supplier API Integration
+    url: https://gasvisor.eu
+
+  - name: "CheckMe — Digital Health Platform"
+    description: "Digital health platform for breast cancer detection across African communities. Combines AI-powered self-check guides, a 24/7 health companion (Nia), provider network, and the CheckMate screening device for clinics. Consulted on platform architecture — structuring doctor-patient workflows and dashboard design."
+    role: "Strategic Consultant (Camsol Incubation)"
+    tech:
+      - Mobile App
+      - AI Health Companion
+      - Telemedicine
+      - Provider Network
+    url: https://checkme-app.com
+
+  - name: "Skulup — White-Label LMS"
+    description: "White-label Learning Management System targeting African education centers. Enables training institutes to create branded learning platforms, manage courses, enroll students, and collect payments via mobile money — all from a single dashboard. Built as an internal Camsol product, mobile-first and designed for low-bandwidth environments."
+    role: "Product Lead (Camsol Internal)"
+    tech:
+      - WordPress / Custom CMS
+      - Mobile-First Design
+      - Mobile Money Payments
+      - White-Label SaaS
+    url: https://skulup.com
 
 languages:
   - language: German
@@ -350,6 +389,8 @@ preferences:
     - Design Lead
     - Project Manager
     - Consultant
+    - Freelance Consultant
+    - Interim Manager
   industries:
     - Deep Tech
     - AI/ML
