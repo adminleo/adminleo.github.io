@@ -650,6 +650,17 @@
       transition: color 0.2s;
     }
     .project-card h3 a:hover { color: var(--accent-2); }
+    .project-role {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--accent-2);
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      border-radius: 20px;
+      padding: 0.15rem 0.6rem;
+      margin-bottom: 0.5rem;
+    }
     .project-card p {
       font-size: 0.85rem;
       color: var(--text-secondary);
@@ -1244,6 +1255,13 @@
       .project-card::before { display: none !important; }
       .project-card h3 { font-size: 0.82rem !important; }
       .project-card h3 a { color: #1a1a1a !important; }
+      .project-role {
+        font-size: 0.6rem !important;
+        color: #6d28d9 !important;
+        background: #f0edf8 !important;
+        border-color: #d4c8f0 !important;
+        padding: 0.08rem 0.4rem !important;
+      }
       .project-card p {
         color: #555 !important;
         font-size: 0.7rem !important;
@@ -1722,6 +1740,7 @@ about how larger organisations work, contributed to a digital platform launch
       
       <div class="project-card">
         <h3><a href="https://c-node.ai" target="_blank" rel="noopener">cNode — Decision Workspace</a></h3>
+        
         <p>AI-augmented decision platform where teams define decisions, set weighted goals, state assumptions, create and compare scenarios, get LLM-powered recommendations, and export audit-ready decision logs. Full-stack SaaS with multi-provider AI abstraction, scoring engine, Monte Carlo analysis, and multi-tenant RBAC.</p>
         
         <div class="project-tech">
@@ -1749,6 +1768,7 @@ about how larger organisations work, contributed to a digital platform launch
       
       <div class="project-card">
         <h3><a href="https://creativate.tech" target="_blank" rel="noopener">Creativate AIStudio</a></h3>
+        
         <p>Deep-tech venture studio and consulting company. We build AI products and help companies integrate AI responsibly — EU AI Act compliant, business-first. Runs a monorepo ecosystem with company website, content hub, IP data room, and client platforms.</p>
         
         <div class="project-tech">
@@ -1770,6 +1790,7 @@ about how larger organisations work, contributed to a digital platform launch
       
       <div class="project-card">
         <h3><a href="https://ai-playbook.eu" target="_blank" rel="noopener">AI Playbook</a></h3>
+        
         <p>Multilingual AI compliance and regulatory knowledge base covering EU AI Act, GDPR, EDPB guidelines, and responsible AI practices. 30+ articles across 7 categories, interactive readiness assessments, full-text search, and glossary. Content-driven lead-gen tool.</p>
         
         <div class="project-tech">
@@ -1791,6 +1812,7 @@ about how larger organisations work, contributed to a digital platform launch
       
       <div class="project-card">
         <h3><a href="https://gasvisor.eu" target="_blank" rel="noopener">Gasvisor — IoT Gas Management</a></h3>
+        <span class="project-role">Product Design Lead (Camsol Incubation)</span>
         <p>IoT CO₂ management platform for facility managers. Smart sensors on gas bottles measure fill levels in real-time, feed data to a cloud dashboard, and trigger automated reordering via supplier networks. Led design system setup and UI refinement during early incubation at Camsol.</p>
         
         <div class="project-tech">
@@ -1812,6 +1834,7 @@ about how larger organisations work, contributed to a digital platform launch
       
       <div class="project-card">
         <h3><a href="https://checkme-app.com" target="_blank" rel="noopener">CheckMe — Digital Health Platform</a></h3>
+        <span class="project-role">Strategic Consultant (Camsol Incubation)</span>
         <p>Digital health platform for breast cancer detection across African communities. Combines AI-powered self-check guides, a 24/7 health companion (Nia), provider network, and the CheckMate screening device for clinics. Consulted on platform architecture — structuring doctor-patient workflows and dashboard design.</p>
         
         <div class="project-tech">
@@ -1833,6 +1856,7 @@ about how larger organisations work, contributed to a digital platform launch
       
       <div class="project-card">
         <h3><a href="https://skulup.com" target="_blank" rel="noopener">Skulup — White-Label LMS</a></h3>
+        <span class="project-role">Product Lead (Camsol Internal)</span>
         <p>White-label Learning Management System targeting African education centers. Enables training institutes to create branded learning platforms, manage courses, enroll students, and collect payments via mobile money — all from a single dashboard. Built as an internal Camsol product, mobile-first and designed for low-bandwidth environments.</p>
         
         <div class="project-tech">
