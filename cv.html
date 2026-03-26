@@ -422,44 +422,51 @@
     @media print {
       @page {
         size: A4;
-        margin: 1.4cm 1.8cm;
+        margin: 1.6cm 2cm;
       }
 
       body {
         padding: 0;
         max-width: 100%;
-        font-size: 8pt;
+        font-size: 9pt;
         background: #ffffff;
-        line-height: 1.4;
+        line-height: 1.5;
+        color: #1a1a1a;
       }
 
       .cv-topbar { display: none !important; }
       .print-btn { display: none !important; }
 
-      /* ---- Header: compact but readable ---- */
+      /* ---- Header: clean and readable ---- */
       .cv-header {
-        border-bottom-width: 2px;
-        margin-bottom: 0.7rem;
-        padding-bottom: 0.6rem;
-        gap: 0.85rem;
+        border-bottom: 2px solid #1a1a1a;
+        margin-bottom: 0.85rem;
+        padding-bottom: 0.7rem;
+        gap: 1rem;
       }
-      .cv-header h1 { font-size: 1.2rem; margin-bottom: 0.1rem; }
-      .cv-avatar { width: 52px; height: 52px; border-radius: 50%; }
-      .cv-headline { font-size: 0.72rem; margin-bottom: 0.3rem; }
-      .cv-contact { font-size: 0.68rem; gap: 0.2rem 0.7rem; }
+      .cv-header h1 { font-size: 1.35rem; margin-bottom: 0.15rem; }
+      .cv-avatar { width: 56px; height: 56px; border-radius: 50%; border-width: 1.5px; }
+      .cv-headline { font-size: 0.78rem; margin-bottom: 0.35rem; }
+      .cv-contact { font-size: 0.72rem; gap: 0.25rem 0.85rem; }
+      .cv-contact-item svg { width: 10px; height: 10px; }
 
       /* ---- Section spacing ---- */
-      .cv-section { margin-bottom: 0.55rem; }
-      .cv-section-header { margin-bottom: 0.3rem; padding-bottom: 0.15rem; }
-      .cv-section-title { font-size: 0.8rem; }
-      .cv-section-label { font-size: 0.48rem; padding: 0.06rem 0.25rem; }
+      .cv-section { margin-bottom: 0.7rem; }
+      .cv-section-header {
+        margin-bottom: 0.4rem;
+        padding-bottom: 0.2rem;
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+      .cv-section-title { font-size: 0.88rem; }
+      .cv-section-label { font-size: 0.52rem; padding: 0.08rem 0.3rem; }
 
       /* ---- Summary ---- */
       .cv-summary {
-        font-size: 0.68rem;
-        line-height: 1.45;
+        font-size: 0.75rem;
+        line-height: 1.5;
         border-left-color: #333;
-        padding-left: 0.45rem;
+        padding-left: 0.5rem;
         border-left-width: 2px;
       }
 
@@ -468,59 +475,56 @@
         page-break-inside: avoid;
         break-inside: avoid;
         border-left-color: #ccc;
-        margin-bottom: 0.4rem;
-        padding-left: 0.5rem;
+        margin-bottom: 0.55rem;
+        padding-left: 0.6rem;
         border-left-width: 1.5px;
       }
+      .cv-entry:last-child { margin-bottom: 0.2rem; }
       .cv-entry:hover { border-left-color: #ccc; }
-      .cv-entry-header { margin-bottom: 0.08rem; gap: 0.15rem 0.75rem; }
-      .cv-entry-title { font-size: 0.72rem; }
-      .cv-entry-company { font-size: 0.66rem; color: #333 !important; margin-bottom: 0; }
-      .cv-entry-period { font-size: 0.54rem; padding: 0.05rem 0.3rem; }
-      .cv-entry-location { font-size: 0.58rem; margin-bottom: 0.08rem; }
-      .cv-entry-desc { font-size: 0.64rem; line-height: 1.4; margin-bottom: 0.1rem; }
-      .cv-entry-highlights li { font-size: 0.6rem; line-height: 1.35; margin-bottom: 0; padding-left: 0.75rem; }
-      .cv-entry-highlights li::before { font-size: 0.55rem; }
-
-      /* ---- Section headers stay with content ---- */
-      .cv-section-header {
-        page-break-after: avoid;
-        break-after: avoid;
-      }
+      .cv-entry-header { margin-bottom: 0.1rem; gap: 0.2rem 0.75rem; }
+      .cv-entry-title { font-size: 0.78rem; }
+      .cv-entry-company { font-size: 0.72rem; color: #333 !important; margin-bottom: 0.02rem; }
+      .cv-entry-period { font-size: 0.58rem; padding: 0.06rem 0.35rem; background: #f3f4f6; }
+      .cv-entry-location { font-size: 0.64rem; margin-bottom: 0.12rem; }
+      .cv-entry-desc { font-size: 0.7rem; line-height: 1.45; margin-bottom: 0.15rem; }
+      .cv-entry-highlights li { font-size: 0.66rem; line-height: 1.4; margin-bottom: 0.04rem; padding-left: 0.85rem; }
+      .cv-entry-highlights li::before { font-size: 0.6rem; }
+      .cv-edu-status { font-size: 0.56rem; }
 
       /* ---- Skills ---- */
-      .cv-skills-row { gap: 0.75rem; }
-      .cv-skills-group-title { font-size: 0.56rem; margin-bottom: 0.15rem; }
-      .cv-skill-pill { font-size: 0.56rem; padding: 0.08rem 0.3rem; }
+      .cv-skills-row { gap: 1rem; }
+      .cv-skills-group-title { font-size: 0.62rem; margin-bottom: 0.2rem; }
+      .cv-skill-pill { font-size: 0.62rem; padding: 0.1rem 0.35rem; }
       .cv-skill-pill.tech {
         color: #333 !important;
         border-color: #ccc !important;
         background: #f5f5f5 !important;
       }
-      .cv-skills-list { gap: 0.15rem; }
+      .cv-skills-list { gap: 0.2rem; }
 
       /* ---- Languages ---- */
-      .cv-languages { font-size: 0.64rem; gap: 0.35rem; }
-      .cv-lang-level { font-size: 0.58rem; }
+      .cv-languages { font-size: 0.72rem; gap: 0.45rem; }
+      .cv-lang-level { font-size: 0.64rem; }
 
-      /* ---- Projects: 2-column grid, compact ---- */
-      .cv-projects-grid { gap: 0.4rem; }
+      /* ---- Projects: 2-column grid ---- */
+      .cv-projects-grid { gap: 0.5rem; }
       .cv-project-card {
         page-break-inside: avoid;
         break-inside: avoid;
         border-color: #ddd !important;
         background: #fafafa !important;
-        padding: 0.4rem 0.5rem !important;
+        padding: 0.5rem 0.6rem !important;
+        border-radius: 4px;
       }
-      .cv-project-card h4 { font-size: 0.66rem; margin-bottom: 0.08rem; }
-      .cv-project-card h4::before { font-size: 0.4rem; }
-      .cv-project-card p { font-size: 0.58rem; line-height: 1.35; }
-      .cv-project-card .cv-project-role { font-size: 0.54rem; margin-bottom: 0.1rem; }
-      .cv-project-card .cv-project-url { font-size: 0.52rem; margin-bottom: 0.1rem; }
+      .cv-project-card h4 { font-size: 0.72rem; margin-bottom: 0.1rem; }
+      .cv-project-card h4::before { font-size: 0.45rem; }
+      .cv-project-card p { font-size: 0.64rem; line-height: 1.4; }
+      .cv-project-card .cv-project-role { font-size: 0.58rem; margin-bottom: 0.12rem; color: #444 !important; }
+      .cv-project-card .cv-project-url { font-size: 0.56rem; margin-bottom: 0.15rem; }
       .cv-project-card .cv-project-url a { color: #333 !important; }
-      .cv-project-tech { gap: 0.12rem; }
+      .cv-project-tech { gap: 0.15rem; }
       .cv-project-card .cv-project-tech span,
-      .cv-project-card .cv-skill-pill { font-size: 0.48rem; padding: 0.04rem 0.2rem; }
+      .cv-project-card .cv-skill-pill { font-size: 0.52rem; padding: 0.05rem 0.25rem; }
 
       /* ---- Colors for print ---- */
       a { color: #1a1a1a !important; text-decoration: none !important; }
