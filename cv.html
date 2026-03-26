@@ -418,11 +418,14 @@
     }
     .cv-footer a { color: #888; }
 
+    /* ---- Print-only header/footer (hidden on screen) ---- */
+    .print-header-footer { display: none; }
+
     /* ---- Print ---- */
     @media print {
       @page {
         size: A4;
-        margin: 2cm 2.2cm;
+        margin: 2.2cm 2.4cm 2cm 2.4cm;
       }
 
       * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
@@ -430,129 +433,167 @@
       body {
         padding: 0;
         max-width: 100%;
-        font-size: 8pt;
+        font-size: 8.5pt;
         background: #ffffff;
-        line-height: 1.4;
+        line-height: 1.5;
         color: #1a1a1a;
       }
 
       .cv-topbar { display: none !important; }
       .print-btn { display: none !important; }
 
-      /* ---- Header ---- */
+      /* ---- Running header/footer (via table hack — repeated on each page) ---- */
+      .print-header-footer { display: block !important; }
+      .print-table-wrapper {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .print-table-wrapper thead,
+      .print-table-wrapper tfoot { display: table-header-group; }
+      .print-table-wrapper tfoot { display: table-footer-group; }
+      .print-table-wrapper td { padding: 0; border: none; }
+      .print-table-spacer { height: 0; }
+
+      .print-page-header {
+        padding-bottom: 0.3rem;
+        margin-bottom: 0.2rem;
+        border-bottom: 1px solid #e5e7eb;
+        font-size: 0.55rem;
+        color: #aaa;
+        font-family: 'JetBrains Mono', monospace;
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+      .print-page-header-name { font-weight: 600; color: #888; }
+      .print-page-header-sep { color: #ccc; }
+      .print-page-header-headline { font-weight: 400; }
+
+      .print-page-footer {
+        padding-top: 0.3rem;
+        margin-top: 0.2rem;
+        border-top: 1px solid #e5e7eb;
+        font-size: 0.5rem;
+        color: #bbb;
+        font-family: 'JetBrains Mono', monospace;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      /* ---- Main Header ---- */
       .cv-header {
         border-bottom: 2px solid #1a1a1a;
-        margin-bottom: 0.6rem;
-        padding-bottom: 0.5rem;
-        gap: 0.85rem;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.6rem;
+        gap: 0.9rem;
       }
-      .cv-header h1 { font-size: 1.2rem; margin-bottom: 0.08rem; }
-      .cv-avatar { width: 48px; height: 48px; border-radius: 50%; border-width: 1.5px; }
-      .cv-headline { font-size: 0.7rem; margin-bottom: 0.22rem; color: #4f46e5; }
-      .cv-contact { font-size: 0.66rem; gap: 0.18rem 0.7rem; }
+      .cv-header h1 { font-size: 1.25rem; margin-bottom: 0.1rem; }
+      .cv-avatar { width: 50px; height: 50px; border-radius: 50%; border-width: 1.5px; }
+      .cv-headline { font-size: 0.72rem; margin-bottom: 0.25rem; color: #4f46e5; }
+      .cv-contact { font-size: 0.68rem; gap: 0.2rem 0.75rem; }
       .cv-contact-item svg { width: 10px; height: 10px; }
 
-      /* ---- Section spacing ---- */
-      .cv-section { margin-bottom: 0.5rem; }
+      /* ---- Section spacing (generous for readability) ---- */
+      .cv-section { margin-bottom: 0.65rem; }
       .cv-section-header {
-        margin-bottom: 0.28rem;
-        padding-bottom: 0.14rem;
+        margin-bottom: 0.35rem;
+        padding-bottom: 0.18rem;
         page-break-after: avoid;
         break-after: avoid;
       }
-      .cv-section-title { font-size: 0.8rem; }
+      .cv-section-title { font-size: 0.85rem; }
       .cv-section-label {
-        font-size: 0.48rem;
-        padding: 0.05rem 0.26rem;
+        font-size: 0.5rem;
+        padding: 0.06rem 0.28rem;
         background: rgba(79, 70, 229, 0.06);
         color: #4f46e5;
       }
 
       /* ---- Summary ---- */
       .cv-summary {
-        font-size: 0.7rem;
-        line-height: 1.45;
+        font-size: 0.72rem;
+        line-height: 1.5;
         border-left-color: #4f46e5;
-        padding-left: 0.5rem;
-        border-left-width: 2px;
+        padding-left: 0.55rem;
+        border-left-width: 2.5px;
       }
 
       /* ---- Experience entries ---- */
       .cv-entry {
         border-left-color: #e5e7eb;
-        margin-bottom: 0.4rem;
-        padding-left: 0.6rem;
+        margin-bottom: 0.55rem;
+        padding-left: 0.65rem;
         border-left-width: 2px;
       }
-      .cv-entry:last-child { margin-bottom: 0.12rem; }
+      .cv-entry:last-child { margin-bottom: 0.15rem; }
       .cv-entry:hover { border-left-color: #e5e7eb; }
       .cv-entry-header {
-        margin-bottom: 0.05rem;
+        margin-bottom: 0.06rem;
         gap: 0.12rem 0.7rem;
         page-break-after: avoid;
         break-after: avoid;
       }
-      .cv-entry-title { font-size: 0.74rem; }
+      .cv-entry-title { font-size: 0.78rem; }
       .cv-entry-company {
-        font-size: 0.67rem;
+        font-size: 0.7rem;
         color: #4f46e5 !important;
-        margin-bottom: 0.02rem;
+        margin-bottom: 0.03rem;
         page-break-after: avoid;
         break-after: avoid;
       }
-      .cv-entry-period { font-size: 0.55rem; padding: 0.04rem 0.3rem; background: #f3f4f6; }
-      .cv-entry-location { font-size: 0.6rem; margin-bottom: 0.08rem; }
-      .cv-entry-desc { font-size: 0.66rem; line-height: 1.4; margin-bottom: 0.1rem; }
-      .cv-entry-highlights { margin-top: 0.06rem; }
-      .cv-entry-highlights li { font-size: 0.62rem; line-height: 1.35; margin-bottom: 0.02rem; padding-left: 0.8rem; }
-      .cv-entry-highlights li::before { font-size: 0.55rem; color: #4f46e5; }
+      .cv-entry-period { font-size: 0.58rem; padding: 0.05rem 0.32rem; background: #f3f4f6; }
+      .cv-entry-location { font-size: 0.62rem; margin-bottom: 0.1rem; }
+      .cv-entry-desc { font-size: 0.68rem; line-height: 1.45; margin-bottom: 0.12rem; }
+      .cv-entry-highlights { margin-top: 0.08rem; }
+      .cv-entry-highlights li { font-size: 0.64rem; line-height: 1.4; margin-bottom: 0.04rem; padding-left: 0.85rem; }
+      .cv-entry-highlights li::before { font-size: 0.58rem; color: #4f46e5; }
 
       /* ---- Education ---- */
-      .cv-edu-status { font-size: 0.54rem; }
+      .cv-edu-status { font-size: 0.56rem; }
 
       /* ---- Skills ---- */
-      .cv-skills-row { gap: 0.8rem; }
-      .cv-skills-group-title { font-size: 0.58rem; margin-bottom: 0.14rem; }
-      .cv-skill-pill { font-size: 0.58rem; padding: 0.07rem 0.3rem; }
+      .cv-skills-row { gap: 0.9rem; }
+      .cv-skills-group-title { font-size: 0.6rem; margin-bottom: 0.16rem; }
+      .cv-skill-pill { font-size: 0.6rem; padding: 0.08rem 0.32rem; }
       .cv-skill-pill.tech {
         color: #4f46e5 !important;
         border-color: rgba(79, 70, 229, 0.2) !important;
         background: rgba(79, 70, 229, 0.05) !important;
       }
-      .cv-skills-list { gap: 0.16rem; }
+      .cv-skills-list { gap: 0.18rem; }
 
       /* ---- Languages ---- */
-      .cv-languages { font-size: 0.68rem; gap: 0.4rem; }
-      .cv-lang-level { font-size: 0.6rem; }
+      .cv-languages { font-size: 0.7rem; gap: 0.45rem; }
+      .cv-lang-level { font-size: 0.62rem; }
 
       /* ---- Projects: 2-column grid ---- */
       .cv-section-projects { page-break-before: auto; }
-      .cv-projects-grid { gap: 0.45rem; }
+      .cv-projects-grid { gap: 0.5rem; }
       .cv-project-card {
         page-break-inside: avoid;
         break-inside: avoid;
         border: 1px solid #e5e7eb;
         background: #ffffff !important;
-        padding: 0.5rem 0.6rem !important;
+        padding: 0.55rem 0.65rem !important;
         border-radius: 5px;
       }
-      .cv-project-card h4 { font-size: 0.68rem; margin-bottom: 0.08rem; }
-      .cv-project-card h4::before { font-size: 0.42rem; color: #4f46e5; }
-      .cv-project-card p { font-size: 0.6rem; line-height: 1.38; }
-      .cv-project-card .cv-project-role { font-size: 0.54rem; margin-bottom: 0.08rem; color: #4f46e5 !important; }
+      .cv-project-card h4 { font-size: 0.7rem; margin-bottom: 0.1rem; }
+      .cv-project-card h4::before { font-size: 0.44rem; color: #4f46e5; }
+      .cv-project-card p { font-size: 0.62rem; line-height: 1.4; }
+      .cv-project-card .cv-project-role { font-size: 0.56rem; margin-bottom: 0.1rem; color: #4f46e5 !important; }
       .cv-project-card .cv-project-url {
-        font-size: 0.54rem;
-        margin-bottom: 0.1rem;
+        font-size: 0.56rem;
+        margin-bottom: 0.12rem;
         word-break: keep-all;
         overflow-wrap: normal;
         white-space: nowrap;
       }
       .cv-project-card .cv-project-url a { color: #4f46e5 !important; }
-      .cv-project-tech { gap: 0.12rem; }
+      .cv-project-tech { gap: 0.14rem; }
       .cv-project-card .cv-project-tech span,
       .cv-project-card .cv-skill-pill {
-        font-size: 0.5rem;
-        padding: 0.04rem 0.22rem;
+        font-size: 0.52rem;
+        padding: 0.05rem 0.24rem;
         color: #4f46e5;
         border-color: rgba(79, 70, 229, 0.15);
         background: rgba(79, 70, 229, 0.06);
@@ -564,7 +605,7 @@
       .cv-project-card h4 a[href]::after { content: none; }
       .cv-contact a { color: #555 !important; }
 
-      /* ---- Footer: hide ---- */
+      /* ---- Web-only footer: hide ---- */
       .cv-footer { display: none !important; }
 
       /* ---- Orphan / widow control ---- */
@@ -1272,11 +1313,31 @@ from scratch.</p>
   </section>
   
 
-  <!-- Footer -->
+  <!-- Footer (web only) -->
   <footer class="cv-footer">
     <span>&copy; 2026 Leonardo Bornhaeusser</span>
     <span>adminleo.github.io/cv.html</span>
   </footer>
+
+  <!-- Print-only running header & footer (repeated on every page via table hack) -->
+  <div class="print-header-footer" aria-hidden="true">
+    <table class="print-table-wrapper">
+      <thead><tr><td>
+        <div class="print-page-header">
+          <span class="print-page-header-name">Leonardo Bornhaeusser</span>
+          <span class="print-page-header-sep">&middot;</span>
+          <span class="print-page-header-headline">Product · Innovation · Business Development</span>
+        </div>
+      </td></tr></thead>
+      <tfoot><tr><td>
+        <div class="print-page-footer">
+          <span>leonardo@creativate.tech</span>
+          <span>adminleo.github.io/cv.html</span>
+        </div>
+      </td></tr></tfoot>
+      <tbody><tr><td class="print-table-spacer"></td></tr></tbody>
+    </table>
+  </div>
 
   <script>
     // ---- i18n Translations ----
