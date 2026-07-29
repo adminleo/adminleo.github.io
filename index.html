@@ -18,7 +18,7 @@
   <meta name="twitter:title" content="Leonardo Bornhäußer — AI &amp; Innovation Leader">
   <meta name="twitter:description" content="AI expert &amp; innovation leader — trustworthy, EU-AI-Act-ready AI on knowledge graphs. 10+ years management &amp; leadership experience. Berlin.">
   <meta name="twitter:image" content="https://adminleo.github.io/assets/img/profile.jpg">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #F8F9FC;
@@ -37,11 +37,11 @@
       --border-accent: rgba(75,110,245,0.35);
       --glow: 0 14px 44px rgba(75,110,245,0.14);
       --max-width: 1080px;
-      --mono: 'JetBrains Mono', monospace;
+      --mono: 'IBM Plex Mono', monospace;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      font-family: 'IBM Plex Sans', -apple-system, system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -50,6 +50,14 @@
     }
     a { color: var(--accent-2); text-decoration: none; transition: color 0.2s; }
     a:hover { color: #3b5ae0; }
+    /* Headings — Bricolage Grotesque Light (Creativate CI) */
+    h1, h2, h3, .gradient-text, .section-title,
+    .service-card h3, .project-card h3, .project-card h3 a,
+    .timeline-content h3, .connect-card h3 {
+      font-family: 'Bricolage Grotesque', 'IBM Plex Sans', sans-serif !important;
+      font-weight: 300 !important;
+      letter-spacing: -0.01em;
+    }
 
     /* ─── Depth background — layered ambient gradients + noise ─── */
     body::before {
@@ -117,7 +125,7 @@
       display: inline-block;
       width: 8px;
       height: 8px;
-      background: var(--accent-2);
+      background: var(--accent);
       border-radius: 50%;
       margin-right: 6px;
       animation: pulse 2s ease-in-out infinite;
@@ -136,7 +144,7 @@
       transition: color 0.2s;
       white-space: nowrap;
     }
-    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover { color: var(--accent); }
 
     /* ─── Language Switcher ─── */
     .lang-switcher {
@@ -162,8 +170,8 @@
     }
     .lang-btn:hover { border-color: var(--border); color: var(--text-secondary); }
     .lang-btn.active {
-      border-color: var(--accent-2);
-      color: var(--accent-2);
+      border-color: var(--accent);
+      color: var(--accent);
       background: rgba(75,110,245,0.08);
     }
 
@@ -216,7 +224,7 @@
       letter-spacing: 0.1em;
       transition: color 0.2s;
     }
-    .mobile-menu a:hover { color: #fff; }
+    .mobile-menu a:hover { color: var(--accent); }
     .mobile-menu .lang-switcher-mobile {
       display: flex;
       gap: 0.5rem;
@@ -705,7 +713,7 @@
       font-weight: 600;
       color: var(--accent-2);
     }
-    .project-link:hover { color: #67e8f9; }
+    .project-link:hover { color: #3b5ae0; }
 
     /* ─── Connect Section ─── */
     .connect-grid {
